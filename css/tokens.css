@@ -11,7 +11,8 @@
   --line-strong: rgba(255,255,255,.16);
 
   /* tipografia */
-  --font: "Manrope", system-ui, sans-serif;
+  /* fontes japonesas como reserva: a Manrope não tem esses caracteres */
+  --font: "Manrope", "Hiragino Sans", "Yu Gothic", "Noto Sans JP", system-ui, sans-serif;
 
   /* layout */
   --pad: clamp(24px, 4.2vw, 72px);
