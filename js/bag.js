@@ -1,5 +1,3 @@
-/* Sacola: itens ficam no localStorage; o painel abre abaixo do botão [data-bag] clicado.
-   Não há checkout: o botão de finalizar só mostra o aviso de funcionalidade indisponível. */
 window.Bag = (() => {
   const STORE = "auren.bag";
   const MAX_PIECES = 3;
@@ -10,7 +8,7 @@ window.Bag = (() => {
   const t = (k, v) => I18n.t(k, v);
 
   let items = [];
-  let panel, body, foot, countEl, openedAt = 0;
+  let panel, body, foot, countEl, anchor = null;
 
   const count = () => items.reduce((n, i) => n + i.qty, 0);
   const subtotal = () => items.reduce((n, i) => n + i.qty * PRODUCT.price, 0);
@@ -108,15 +106,16 @@ window.Bag = (() => {
   }
 
   function open(button) {
+    anchor = button;
     place(button);
     panel.classList.add("is-open");
     panel.setAttribute("aria-hidden", "false");
     $$("[data-bag]").forEach((b) => b.setAttribute("aria-expanded", String(b === button)));
-    openedAt = scrollY;
   }
 
   function close() {
     if (!panel.classList.contains("is-open")) return;
+    anchor = null;
     panel.classList.remove("is-open");
     panel.setAttribute("aria-hidden", "true");
     $$("[data-bag]").forEach((b) => b.setAttribute("aria-expanded", "false"));
@@ -148,8 +147,9 @@ window.Bag = (() => {
       }
     });
     document.addEventListener("keydown", (e) => e.key === "Escape" && close());
-    // o botão do hero sai da tela ao rolar, então o painel fecha junto
-    addEventListener("scroll", () => Math.abs(scrollY - openedAt) > 80 && close(), { passive: true });
+    const follow = () => anchor && place(anchor);
+    addEventListener("scroll", follow, { passive: true });
+    $("#topbar").addEventListener("transitionend", follow);
     addEventListener("resize", close);
     document.addEventListener("i18n:change", render);
   }

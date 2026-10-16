@@ -1,4 +1,3 @@
-/* Barra fixa, navegação por âncoras, entradas ao rolar, avisos e interações da página de compra. */
 window.Site = (() => {
   const $ = (s, r = document) => r.querySelector(s);
   const $$ = (s, r = document) => [...r.querySelectorAll(s)];
@@ -7,10 +6,10 @@ window.Site = (() => {
   function topbar() {
     const bar = $("#topbar");
     const showcase = $("#showcase");
-    const links = $$(".topbar__links a");
+    const links = $$(".topbar__links--sections a");
     const sections = links.map((a) => $(a.getAttribute("href"))).filter(Boolean);
     const update = () => {
-      bar.classList.toggle("is-visible", scrollY > innerHeight * 0.35);
+      bar.classList.toggle("is-scrolled", scrollY > innerHeight * 0.25);
       const mid = innerHeight * 0.4;
       let active = null;
       for (const sec of sections) if (sec.getBoundingClientRect().top <= mid) active = sec;

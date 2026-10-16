@@ -33,16 +33,41 @@
 </head>
 <body>
 
-  <header class="topbar" id="topbar" aria-label="Navegação" data-i18n-attr="aria-label:nav.label">
-    <a class="logo topbar__logo" href="#hero" aria-label="AUREN, voltar ao início" data-i18n-attr="aria-label:nav.homeAria"><svg class="logo__a" viewBox="0 0 36 40" fill="none" aria-hidden="true"><path d="M2.5 39 L18 4 L33.5 39" stroke="currentColor" stroke-width="3.2"/><circle cx="18" cy="26" r="3.8" fill="var(--copper)"/></svg>UREN</a>
-    <nav class="topbar__links" aria-label="Seções" data-i18n-attr="aria-label:nav.sections">
-      <a href="#manifesto" data-i18n="nav.watch">O relógio</a>
-      <a href="#detalhes" data-i18n="nav.details">Detalhes</a>
-      <a href="#especificacoes" data-i18n="nav.specs">Especificações</a>
-      <a href="#colecao" data-i18n="nav.collection">Coleção</a>
-      <a href="#servicos" data-i18n="nav.service">Assistência</a>
+  <header class="topbar reveal" id="topbar" style="--d:.2s" aria-label="Navegação" data-i18n-attr="aria-label:nav.label">
+    <div class="topbar__brand">
+      <a class="logo" href="#hero" aria-label="AUREN, voltar ao início" data-i18n-attr="aria-label:nav.homeAria"><svg class="logo__a" viewBox="0 0 36 40" fill="none" aria-hidden="true"><path d="M2.5 39 L18 4 L33.5 39" stroke="currentColor" stroke-width="3.2"/><circle cx="18" cy="26" r="3.8" fill="var(--copper)"/></svg>UREN</a>
+      <button class="burger" type="button" aria-label="Abrir menu" data-i18n-attr="aria-label:hero.menu" data-unavailable><i></i><i></i></button>
+    </div>
+    <nav class="topbar__center" aria-label="Seções" data-i18n-attr="aria-label:nav.sections">
+      <div class="topbar__links topbar__links--hero">
+        <a href="#colecao" class="is-active" data-i18n="hero.watches">Relógios</a>
+        <a href="#servicos" data-i18n="hero.warranty">Garantia &amp; Assistência</a>
+        <a href="#boutiques" data-i18n="hero.stores">Lojas</a>
+      </div>
+      <div class="topbar__links topbar__links--sections">
+        <a href="#manifesto" data-i18n="nav.watch">O relógio</a>
+        <a href="#detalhes" data-i18n="nav.details">Detalhes</a>
+        <a href="#especificacoes" data-i18n="nav.specs">Especificações</a>
+        <a href="#colecao" data-i18n="nav.collection">Coleção</a>
+        <a href="#servicos" data-i18n="nav.service">Assistência</a>
+      </div>
     </nav>
     <div class="topbar__tools">
+      <div class="picker picker--wide" data-picker="currency">
+      <button class="pill" type="button" aria-haspopup="true" aria-expanded="false" aria-label="Moeda" data-i18n-attr="aria-label:hero.currency"><span data-picker-value>BRL</span><svg viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M1 1l4 4 4-4"/></svg></button>
+      <div class="picker__menu" data-picker-menu></div>
+      </div>
+      <div class="picker picker--wide" data-picker="lang">
+      <button class="pill" type="button" aria-haspopup="true" aria-expanded="false" aria-label="Idioma" data-i18n-attr="aria-label:hero.language"><span data-picker-value>PT</span><svg viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M1 1l4 4 4-4"/></svg></button>
+      <div class="picker__menu" data-picker-menu></div>
+      </div>
+      <div class="picker picker--compact" data-picker="lang currency">
+      <button class="pill" type="button" aria-haspopup="true" aria-expanded="false" aria-label="Idioma" data-i18n-attr="aria-label:hero.language"><span data-picker-value>PT · BRL</span><svg viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M1 1l4 4 4-4"/></svg></button>
+      <div class="picker__menu" data-picker-menu></div>
+      </div>
+      <span class="sep" aria-hidden="true"></span>
+      <button class="icon-btn icon-btn--wide" type="button" aria-label="Favoritos" data-i18n-attr="aria-label:hero.favorites" data-unavailable><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 017-2.6A4 4 0 0119 10c0 5.6-7 10-7 10z"/></svg></button>
+      <button class="icon-btn icon-btn--wide" type="button" aria-label="Conta" data-i18n-attr="aria-label:hero.account" data-unavailable><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="10" r="3"/><path d="M6.5 18.5c1.5-2 3.4-3 5.5-3s4 1 5.5 3"/></svg></button>
       <button class="icon-btn" type="button" aria-label="Sacola" data-i18n-attr="aria-label:nav.bag" aria-controls="bag" aria-expanded="false" data-bag><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M6 8h12l-1 12H7L6 8z"/><path d="M9 8V6a3 3 0 016 0v2"/></svg><span class="badge" data-bag-count hidden>0</span></button>
       <a class="topbar__buy" href="#comprar" data-i18n="nav.buy">Comprar</a>
     </div>
@@ -98,45 +123,8 @@
 
       <header class="hero" id="hero">
         <div class="hero__inner">
-          <nav class="nav reveal" style="--d:.2s" aria-label="Principal" data-i18n-attr="aria-label:nav.main">
-            <div class="brand">
-              <a class="logo" href="#hero" aria-label="AUREN, página inicial" data-i18n-attr="aria-label:hero.homeAria">
-                <svg class="logo__a" viewBox="0 0 36 40" fill="none" aria-hidden="true">
-                  <path d="M2.5 39 L18 4 L33.5 39" stroke="currentColor" stroke-width="3.2"/>
-                  <circle cx="18" cy="26" r="3.8" fill="var(--copper)"/>
-                </svg>UREN
-              </a>
-              <button class="burger" type="button" aria-label="Abrir menu" data-i18n-attr="aria-label:hero.menu" data-unavailable><i></i><i></i></button>
-            </div>
-
-            <ul class="links">
-              <li><a href="#colecao" class="is-active" data-i18n="hero.watches">Relógios</a></li>
-              <li><a href="#servicos" data-i18n="hero.warranty">Garantia &amp; Assistência</a></li>
-              <li><a href="#boutiques" data-i18n="hero.stores">Lojas</a></li>
-            </ul>
-
-            <div class="tools">
-          <div class="picker picker--wide" data-picker="currency">
-            <button class="pill" type="button" aria-haspopup="true" aria-expanded="false" aria-label="Moeda" data-i18n-attr="aria-label:hero.currency"><span data-picker-value>BRL</span><svg viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M1 1l4 4 4-4"/></svg></button>
-            <div class="picker__menu" data-picker-menu></div>
-          </div>
-          <div class="picker picker--wide" data-picker="lang">
-            <button class="pill" type="button" aria-haspopup="true" aria-expanded="false" aria-label="Idioma" data-i18n-attr="aria-label:hero.language"><span data-picker-value>PT</span><svg viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M1 1l4 4 4-4"/></svg></button>
-            <div class="picker__menu" data-picker-menu></div>
-          </div>
-          <div class="picker picker--compact" data-picker="lang currency">
-            <button class="pill" type="button" aria-haspopup="true" aria-expanded="false" aria-label="Idioma" data-i18n-attr="aria-label:hero.language"><span data-picker-value>PT · BRL</span><svg viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M1 1l4 4 4-4"/></svg></button>
-            <div class="picker__menu" data-picker-menu></div>
-          </div>
-              <span class="sep" aria-hidden="true"></span>
-              <button class="icon-btn icon-btn--wide" type="button" aria-label="Favoritos" data-i18n-attr="aria-label:hero.favorites" data-unavailable><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 017-2.6A4 4 0 0119 10c0 5.6-7 10-7 10z"/></svg></button>
-              <button class="icon-btn icon-btn--wide" type="button" aria-label="Conta" data-i18n-attr="aria-label:hero.account" data-unavailable><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="10" r="3"/><path d="M6.5 18.5c1.5-2 3.4-3 5.5-3s4 1 5.5 3"/></svg></button>
-              <button class="icon-btn" type="button" aria-label="Sacola" data-i18n-attr="aria-label:nav.bag" aria-controls="bag" aria-expanded="false" data-bag><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M6 8h12l-1 12H7L6 8z"/><path d="M9 8V6a3 3 0 016 0v2"/></svg><span class="badge" data-bag-count hidden>0</span></button>
-            </div>
-          </nav>
-
           <div class="meta reveal" style="--d:.35s">
-            <span class="limited" data-i18n="hero.limited">Edição limitada a <b>50 peças</b></span>
+            <span class="limited"><span data-i18n="hero.limited">Edição limitada a <b>50 peças</b></span></span>
             <span class="available" data-i18n="hero.available">Disponível</span>
           </div>
 
@@ -309,9 +297,9 @@
       <div class="services__col" id="boutiques">
         <p class="eyebrow" data-reveal data-i18n="stores.eyebrow">Boutiques</p>
         <ul class="stores">
-          <li data-reveal><h3 data-i18n="stores.saoPaulo">São Paulo</h3><p>Rua Oscar Freire, 912 · Jardins</p><span data-i18n="stores.hours20">Seg. a sáb., 10h às 20h</span></li>
-          <li data-reveal><h3 data-i18n="stores.rio">Rio de Janeiro</h3><p>Av. Ataulfo de Paiva, 1100 · Leblon</p><span data-i18n="stores.hours19">Seg. a sáb., 10h às 19h</span></li>
-          <li data-reveal><h3 data-i18n="stores.lisbon">Lisboa</h3><p>Avenida da Liberdade, 180</p><span data-i18n="stores.hours19">Seg. a sáb., 10h às 19h</span></li>
+          <li data-reveal><h3 data-i18n="stores.saoPaulo">São Paulo</h3><p>Alameda dos Relojoeiros, 912</p><span data-i18n="stores.hours20">Seg. a sáb., 10h às 20h</span></li>
+          <li data-reveal><h3 data-i18n="stores.rio">Rio de Janeiro</h3><p>Rua do Cronógrafo, 1100</p><span data-i18n="stores.hours19">Seg. a sáb., 10h às 19h</span></li>
+          <li data-reveal><h3 data-i18n="stores.lisbon">Lisboa</h3><p>Travessa da Safira Negra, 180</p><span data-i18n="stores.hours19">Seg. a sáb., 10h às 19h</span></li>
         </ul>
       </div>
     </section>
