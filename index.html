@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AUREN · Obsidian</title>
+  <meta name="description" content="AUREN Obsidian: cronógrafo em carbono forjado com ouro, edição limitada a 50 peças.">
+  <link rel="icon" href="assets/brand/auren-simbolo.svg" type="image/svg+xml">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/header.css">
+  <link rel="stylesheet" href="css/explode.css">
+  <link rel="stylesheet" href="css/topbar.css">
+  <link rel="stylesheet" href="css/sections.css">
+  <link rel="stylesheet" href="css/footer.css">
+</head>
+<body>
+
+  <header class="topbar" id="topbar" aria-label="Navegação">
+    <a class="logo topbar__logo" href="#hero" aria-label="AUREN, voltar ao início"><svg class="logo__a" viewBox="0 0 36 40" fill="none" aria-hidden="true"><path d="M2.5 39 L18 4 L33.5 39" stroke="currentColor" stroke-width="3.2"/><circle cx="18" cy="26" r="3.8" fill="var(--copper)"/></svg>UREN</a>
+    <nav class="topbar__links" aria-label="Seções">
+      <a href="#manifesto">O relógio</a>
+      <a href="#detalhes">Detalhes</a>
+      <a href="#especificacoes">Especificações</a>
+      <a href="#colecao">Coleção</a>
+      <a href="#servicos">Assistência</a>
+    </nav>
+    <div class="topbar__tools">
+      <button class="icon-btn" type="button" aria-label="Sacola" data-bag><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M6 8h12l-1 12H7L6 8z"/><path d="M9 8V6a3 3 0 016 0v2"/></svg><span class="badge" data-bag-count>0</span></button>
+      <a class="topbar__buy" href="#comprar">Comprar</a>
+    </div>
+  </header>
+
+  <section class="showcase" id="showcase" aria-label="OBSIDIAN em detalhes">
+    <div class="showcase__stage">
+      <div class="film" aria-hidden="true">
+        <canvas class="film__canvas"></canvas>
+        <svg class="film__lines"></svg>
+      </div>
+
+      <div class="notes">
+          <article class="note note--below" data-part="cristal">
+            <span class="note__num">01</span>
+            <h2 class="note__title">Cristal de safira</h2>
+            <p class="note__text">Safira sintética com antirreflexo nas duas faces. Dureza 9 na escala Mohs: só o diamante risca.</p>
+          </article>
+          <article class="note note--below" data-part="aro">
+            <span class="note__num">02</span>
+            <h2 class="note__title">Luneta em ouro 18k</h2>
+            <p class="note__text">Polida à mão em três etapas até o espelho, 44 mm de diâmetro.</p>
+          </article>
+          <article class="note note--below" data-part="ponteiros">
+            <span class="note__num">03</span>
+            <h2 class="note__title">Ponteiros facetados</h2>
+            <p class="note__text">Ouro aplicado com Super-LumiNova®, legíveis no escuro total.</p>
+          </article>
+          <article class="note note--above" data-part="mostrador">
+            <span class="note__num">04</span>
+            <h2 class="note__title">Mostrador em camadas</h2>
+            <p class="note__text">Centro texturizado em bronze e três submostradores do cronógrafo.</p>
+          </article>
+          <article class="note note--above" data-part="movimento">
+            <span class="note__num">05</span>
+            <h2 class="note__title">Calibre AU-262</h2>
+            <p class="note__text">Quartzo de alta frequência a 262 kHz. Desvio de ±10 segundos por ano.</p>
+          </article>
+          <article class="note note--above" data-part="caixa">
+            <span class="note__num">06</span>
+            <h2 class="note__title">Carbono forjado</h2>
+            <p class="note__text">Flocos de ouro prensados na fibra: nenhuma caixa é igual à outra.</p>
+          </article>
+      </div>
+
+      <div class="progress" aria-hidden="true">
+        <span class="progress__num">00</span>
+        <span class="progress__bar"><i></i></span>
+        <span class="progress__total">06</span>
+      </div>
+
+      <div class="grain" aria-hidden="true"></div>
+
+      <header class="hero" id="hero">
+        <div class="hero__inner">
+      <nav class="nav reveal" style="--d:.2s" aria-label="Principal">
+        <div class="brand">
+          <a class="logo" href="/" aria-label="AUREN, página inicial">
+            <svg class="logo__a" viewBox="0 0 36 40" fill="none" aria-hidden="true">
+              <path d="M2.5 39 L18 4 L33.5 39" stroke="currentColor" stroke-width="3.2"/>
+              <circle cx="18" cy="26" r="3.8" fill="var(--copper)"/>
+            </svg>UREN
+          </a>
+          <button class="burger" type="button" aria-label="Abrir menu"><i></i><i></i></button>
+        </div>
+
+        <ul class="links">
+          <li><a href="#colecao" class="is-active">Relógios</a></li>
+          <li><a href="#servicos">Garantia &amp; Assistência</a></li>
+          <li><a href="#boutiques">Lojas</a></li>
+        </ul>
+
+        <div class="tools">
+          <button class="pill" type="button">BRL <svg viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M1 1l4 4 4-4"/></svg></button>
+          <button class="pill" type="button">PT <svg viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M1 1l4 4 4-4"/></svg></button>
+          <span class="sep" aria-hidden="true"></span>
+          <button class="icon-btn" type="button" aria-label="Favoritos"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 017-2.6A4 4 0 0119 10c0 5.6-7 10-7 10z"/></svg></button>
+          <button class="icon-btn" type="button" aria-label="Conta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="10" r="3"/><path d="M6.5 18.5c1.5-2 3.4-3 5.5-3s4 1 5.5 3"/></svg></button>
+          <button class="icon-btn" type="button" aria-label="Sacola" data-bag><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M6 8h12l-1 12H7L6 8z"/><path d="M9 8V6a3 3 0 016 0v2"/></svg><span class="badge" data-bag-count>0</span></button>
+        </div>
+      </nav>
+
+      <div class="meta reveal" style="--d:.35s">
+        <span class="limited">Edição limitada a <b>50 peças</b></span>
+        <span class="available">Disponível</span>
+      </div>
+
+      <div class="product">
+        <p class="ref reveal" style="--d:.5s">AU-3715R-BK</p>
+        <h1 class="name reveal" style="--d:.6s">OBSIDIAN</h1>
+        <p class="price reveal" style="--d:.75s">R$ 168.900,00 <small>ou 12x sem juros</small></p>
+        <a class="buy reveal" style="--d:.85s" href="#comprar">Comprar</a>
+      </div>
+        </div>
+        <div class="scroll-cue reveal" style="--d:1.2s" aria-hidden="true"><span>Role para desmontar</span><i></i></div>
+      </header>
+    </div>
+  </section>
+
+  <main>
+    <!-- ===== Manifesto ===== -->
+    <section class="manifesto" id="manifesto">
+      <div class="manifesto__media" aria-hidden="true"><img src="assets/images/pulso.jpg" alt="" loading="lazy"></div>
+      <div class="manifesto__inner">
+        <p class="eyebrow" data-reveal>O relógio</p>
+        <h2 class="manifesto__title" data-reveal>Cinquenta peças.<br><span>Nenhuma igual à outra.</span></h2>
+        <p class="manifesto__text" data-reveal>Cada caixa do OBSIDIAN nasce de fibras de carbono e flocos de ouro prensados a 200 toneladas. O desenho que aparece na superfície é decidido pela própria matéria, e por isso cada relógio sai do ateliê com um padrão que não se repete.</p>
+        <ul class="manifesto__facts" data-reveal>
+          <li><b>44 mm</b><span>caixa octogonal</span></li>
+          <li><b>13,2 mm</b><span>de espessura</span></li>
+          <li><b>100 m</b><span>resistência à água</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===== Detalhes (vídeo das cenas) ===== -->
+    <section class="film-sec" id="detalhes" aria-label="Detalhes do OBSIDIAN">
+      <header class="film-sec__head">
+        <p class="eyebrow" data-reveal>Detalhes</p>
+        <h2 class="film-sec__title" data-reveal>Feito para ser visto de perto.</h2>
+      </header>
+      <div class="reel" data-reel data-reveal>
+        <div class="reel__frame">
+          <div class="reel__slide" style="background-image:url(assets/images/hero.jpg);--o:62% 45%;--s0:1;--s1:1.08" data-label="Frente"></div>
+          <div class="reel__slide" style="background-image:url(assets/images/hero.jpg);--o:56% 22%;--s0:2.6;--s1:2.9" data-label="Luneta"></div>
+          <div class="reel__slide" style="background-image:url(assets/images/hero.jpg);--o:89% 58%;--s0:3;--s1:3.35" data-label="Coroa"></div>
+          <div class="reel__slide" style="background-image:url(assets/images/hero.jpg);--o:56% 92%;--s0:2.8;--s1:3.1" data-label="Carbono forjado"></div>
+          <div class="reel__slide" style="background-image:url(assets/images/explode-final.jpg);--o:50% 50%;--s0:1.12;--s1:1" data-label="Por dentro"></div>
+          <div class="reel__slide reel__slide--end" data-label="AUREN">
+            <span class="reel__mark"><svg class="logo__a" viewBox="0 0 36 40" fill="none" aria-hidden="true"><path d="M2.5 39 L18 4 L33.5 39" stroke="currentColor" stroke-width="3.2"/><circle cx="18" cy="26" r="3.8" fill="var(--copper)"/></svg>UREN</span>
+          </div>
+        </div>
+        <div class="reel__hud">
+          <span class="reel__label" data-reel-label>Frente</span>
+          <div class="reel__track" data-reel-track></div>
+          <button class="reel__toggle" type="button" data-reel-toggle aria-label="Pausar vídeo">Pausar</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Especificações ===== -->
+    <section class="specs" id="especificacoes">
+      <div class="specs__intro">
+        <p class="eyebrow" data-reveal>Especificações</p>
+        <h2 class="specs__title" data-reveal>OBSIDIAN<br><span>AU-3715R-BK</span></h2>
+        <figure class="specs__figure" data-reveal><img src="assets/images/explode-final.jpg" alt="O OBSIDIAN desmontado, peça por peça" loading="lazy"></figure>
+      </div>
+      <dl class="specs__list">
+        <div data-reveal><dt>Caixa</dt><dd>Carbono forjado com flocos de ouro, octogonal</dd></div>
+        <div data-reveal><dt>Diâmetro</dt><dd>44 mm, 13,2 mm de espessura</dd></div>
+        <div data-reveal><dt>Luneta</dt><dd>Ouro amarelo 18k polido, 4 parafusos sextavados</dd></div>
+        <div data-reveal><dt>Vidro</dt><dd>Safira com antirreflexo nas duas faces</dd></div>
+        <div data-reveal><dt>Movimento</dt><dd>Calibre AU-262, quartzo de alta frequência</dd></div>
+        <div data-reveal><dt>Funções</dt><dd>Horas, minutos, cronógrafo 1/10 s, segundos pequenos</dd></div>
+        <div data-reveal><dt>Precisão</dt><dd>±10 segundos por ano</dd></div>
+        <div data-reveal><dt>Bateria</dt><dd>Até 4 anos, com aviso de fim de vida</dd></div>
+        <div data-reveal><dt>Água</dt><dd>100 m (10 ATM), coroa rosqueada</dd></div>
+        <div data-reveal><dt>Pulseira</dt><dd>Borracha FKM preta, fecho deployant em ouro</dd></div>
+        <div data-reveal><dt>Edição</dt><dd>50 peças numeradas, gravadas no fundo da caixa</dd></div>
+      </dl>
+    </section>
+
+    <!-- ===== Coleção ===== -->
+    <section class="collection" id="colecao">
+      <header class="collection__head">
+        <p class="eyebrow" data-reveal>Coleção AU-37</p>
+        <h2 class="collection__title" data-reveal>Três leituras do mesmo relógio.</h2>
+      </header>
+      <ul class="collection__grid">
+        <li class="watch-card is-current" data-reveal>
+          <a href="#comprar">
+            <figure><img src="assets/images/colecao-obsidian.jpg" alt="AUREN OBSIDIAN, carbono forjado e ouro" loading="lazy"></figure>
+            <div class="watch-card__info">
+              <h3>OBSIDIAN</h3>
+              <p>Carbono forjado · ouro 18k</p>
+              <span class="watch-card__price">R$ 168.900</span>
+            </div>
+            <span class="watch-card__tag">Você está vendo</span>
+          </a>
+        </li>
+        <li class="watch-card" data-reveal style="--d:.1s">
+          <a href="#colecao">
+            <figure><img src="assets/images/colecao-eclipse.jpg" alt="AUREN ECLIPSE, todo preto" loading="lazy"></figure>
+            <div class="watch-card__info">
+              <h3>ECLIPSE</h3>
+              <p>Carbono fosco · titânio DLC</p>
+              <span class="watch-card__price">R$ 142.500</span>
+            </div>
+          </a>
+        </li>
+        <li class="watch-card" data-reveal style="--d:.2s">
+          <a href="#colecao">
+            <figure><img src="assets/images/colecao-glacier.jpg" alt="AUREN GLACIER, titânio e mostrador azul" loading="lazy"></figure>
+            <div class="watch-card__info">
+              <h3>GLACIER</h3>
+              <p>Titânio grau 5 · mostrador gelo</p>
+              <span class="watch-card__price">R$ 126.000</span>
+            </div>
+            <span class="watch-card__tag watch-card__tag--soon">Esgotado</span>
+          </a>
+        </li>
+      </ul>
+    </section>
+
+    <!-- ===== Compra ===== -->
+    <section class="purchase" id="comprar">
+      <figure class="purchase__media" data-reveal><img src="assets/images/colecao-obsidian.jpg" alt="" loading="lazy"></figure>
+      <div class="purchase__panel">
+        <p class="eyebrow" data-reveal>AU-3715R-BK</p>
+        <h2 class="purchase__title" data-reveal>OBSIDIAN</h2>
+        <p class="purchase__price" data-reveal>R$ 168.900,00 <small>ou 12x de R$ 14.075,00 sem juros</small></p>
+
+        <div class="edition" data-reveal>
+          <div class="edition__row"><span>Peça nº <b>27</b> de 50</span><span>23 disponíveis</span></div>
+          <div class="edition__bar"><i style="--p:.54"></i></div>
+        </div>
+
+        <fieldset class="option" data-reveal>
+          <legend>Pulseira</legend>
+          <div class="option__choices" data-choices>
+            <button type="button" class="is-on">Borracha preta</button>
+            <button type="button">Couro de jacaré</button>
+            <button type="button">Bracelete de carbono</button>
+          </div>
+        </fieldset>
+
+        <label class="engrave" data-reveal>
+          <span>Gravação no fundo <small>(opcional, até 20 caracteres)</small></span>
+          <input type="text" maxlength="20" placeholder="Ex.: R.T. 06·09" data-engrave>
+        </label>
+
+        <div class="purchase__actions" data-reveal>
+          <button class="btn btn--primary" type="button" data-add-to-bag>Adicionar à sacola</button>
+          <a class="btn btn--ghost" href="#boutiques">Agendar visita</a>
+        </div>
+
+        <ul class="purchase__perks" data-reveal>
+          <li>Entrega segurada em até 3 dias úteis</li>
+          <li>Garantia internacional de 5 anos</li>
+          <li>Estojo em nogueira com certificado numerado</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===== Garantia, assistência e lojas ===== -->
+    <section class="services" id="servicos">
+      <div class="services__col">
+        <p class="eyebrow" data-reveal>Garantia &amp; Assistência</p>
+        <h2 class="services__title" data-reveal>Um relógio para a vida inteira.</h2>
+        <ol class="services__list">
+          <li data-reveal><span>01</span><div><h3>5 anos de garantia</h3><p>Cobertura internacional contra defeitos de fabricação, registrada no seu nome e no número da peça.</p></div></li>
+          <li data-reveal><span>02</span><div><h3>Revisão no ateliê</h3><p>A cada quatro anos, troca de bateria, juntas e teste de estanqueidade, com retirada e entrega na sua casa.</p></div></li>
+          <li data-reveal><span>03</span><div><h3>Peças para sempre</h3><p>Mantemos componentes de cada edição em estoque. O seu OBSIDIAN sempre terá conserto.</p></div></li>
+        </ol>
+      </div>
+      <div class="services__col" id="boutiques">
+        <p class="eyebrow" data-reveal>Boutiques</p>
+        <ul class="stores">
+          <li data-reveal><h3>São Paulo</h3><p>Rua Oscar Freire, 912 · Jardins</p><span>Seg. a sáb., 10h às 20h</span></li>
+          <li data-reveal><h3>Rio de Janeiro</h3><p>Av. Ataulfo de Paiva, 1100 · Leblon</p><span>Seg. a sáb., 10h às 19h</span></li>
+          <li data-reveal><h3>Lisboa</h3><p>Avenida da Liberdade, 180</p><span>Seg. a sáb., 10h às 19h</span></li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== Rodapé ===== -->
+  <footer class="footer">
+    <div class="footer__top">
+      <form class="newsletter" data-newsletter>
+        <label for="news-email">Seja avisado da próxima edição limitada.</label>
+        <div class="newsletter__field">
+          <input id="news-email" type="email" placeholder="seu@email.com" required>
+          <button type="submit">Avise-me</button>
+        </div>
+        <p class="newsletter__ok" role="status" hidden>Pronto. Você será o primeiro a saber.</p>
+      </form>
+      <nav class="footer__cols" aria-label="Rodapé">
+        <div><h4>Relógios</h4><a href="#colecao">OBSIDIAN</a><a href="#colecao">ECLIPSE</a><a href="#colecao">GLACIER</a></div>
+        <div><h4>Atendimento</h4><a href="#servicos">Garantia</a><a href="#servicos">Assistência</a><a href="#boutiques">Boutiques</a></div>
+        <div><h4>A marca</h4><a href="#manifesto">O relógio</a><a href="#detalhes">Detalhes</a><a href="#hero">Instagram</a></div>
+      </nav>
+    </div>
+    <div class="footer__mark" aria-hidden="true"><svg class="logo__a" viewBox="0 0 36 40" fill="none" aria-hidden="true"><path d="M2.5 39 L18 4 L33.5 39" stroke="currentColor" stroke-width="3.2"/><circle cx="18" cy="26" r="3.8" fill="var(--copper)"/></svg>UREN</div>
+    <div class="footer__legal">
+      <span>© 2026 AUREN</span>
+      <span>Projeto fictício de portfólio: marca, produtos e preços são inventados.</span>
+    </div>
+  </footer>
+
+  <div class="toast" role="status" aria-live="polite" data-toast></div>
+
+  <script src="js/smooth-scroll.js"></script>
+  <script src="js/frame-sequence.js"></script>
+  <script src="js/explode.js"></script>
+  <script src="js/site.js"></script>
+  <script src="js/film-reel.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
