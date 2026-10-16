@@ -1,0 +1,154 @@
+/* =========================================================
+   Showcase: o hero é o primeiro frame do vídeo, e o scroll
+   avança o vídeo (sequência de frames num canvas).
+   ========================================================= */
+.showcase {
+  position: relative;
+  height: 560vh;              /* comprimento do scroll do vídeo */
+  background: var(--bg);
+}
+
+.showcase__stage {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  height: 100svh;
+  min-height: 600px;
+  overflow: hidden;
+  isolation: isolate;
+  background: var(--bg);
+}
+
+/* ===== Vídeo ===== */
+.film {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  animation: film-in 1.8s var(--ease-out) both;
+}
+@keyframes film-in { from { opacity: 0; filter: brightness(.3); } to { opacity: 1; filter: none; } }
+
+.film__canvas,
+.film__lines {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+.film__lines { overflow: visible; }
+.film__lines line {
+  stroke: rgba(243,237,230,.5);
+  stroke-width: 1;
+  transition: opacity .5s var(--ease-out);
+}
+.film__lines circle {
+  fill: var(--copper);
+  transition: opacity .5s var(--ease-out);
+}
+.film__lines .ring {
+  fill: none;
+  stroke: var(--copper);
+  stroke-width: 1;
+  opacity: .5;
+}
+
+/* vinheta + escurecimento do lado do texto do hero */
+.showcase__stage::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  background:
+    linear-gradient(90deg, rgba(5,4,4,var(--shade-l, .72)) 0%, rgba(5,4,4,calc(var(--shade-l, .72) * .35)) 32%, rgba(5,4,4,0) 55%),
+    linear-gradient(0deg, rgba(5,4,4,.55) 0%, rgba(5,4,4,0) 25%),
+    linear-gradient(180deg, rgba(5,4,4,.4) 0%, rgba(5,4,4,0) 18%),
+    radial-gradient(120% 90% at 60% 50%, transparent 60%, rgba(0,0,0,.5) 100%);
+}
+
+.grain {
+  position: absolute;
+  inset: 0;
+  z-index: 20;
+  pointer-events: none;
+  opacity: .07;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* ===== Anotações ===== */
+.notes {
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  pointer-events: none;
+}
+.note {
+  position: absolute;
+  width: min(214px, 15vw);
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity .6s var(--ease-out), transform .6s var(--ease-out);
+}
+.note.is-on { opacity: 1; transform: none; }
+.note__num { font-size: 9px; letter-spacing: .2em; color: var(--copper); }
+.note__title {
+  margin-top: 8px;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+.note__text {
+  margin-top: 8px;
+  font-size: 12px;
+  line-height: 1.6;
+  color: var(--muted);
+}
+
+/* ===== Progresso ===== */
+.progress {
+  position: absolute;
+  z-index: 6;
+  right: var(--pad);
+  bottom: clamp(32px, 6vh, 72px);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 10px;
+  letter-spacing: .14em;
+  color: var(--muted);
+  opacity: 0;
+}
+.progress__num { color: var(--ink); min-width: 2ch; }
+.progress__bar { width: 90px; height: 1px; background: rgba(255,255,255,.15); position: relative; }
+.progress__bar i {
+  position: absolute; inset: 0;
+  background: var(--copper);
+  transform-origin: left;
+  transform: scaleX(var(--p, 0));
+}
+
+/* ===== Mobile: só a legenda da peça atual, embaixo ===== */
+@media (max-width: 860px) {
+  .note {
+    left: var(--pad) !important;
+    right: var(--pad);
+    top: auto !important;
+    bottom: 96px;
+    width: auto;
+  }
+  .note.is-on { opacity: 0; transform: translateY(10px); }
+  .note.is-current { opacity: 1; transform: none; }
+  .film__lines { display: none; }
+  .progress { left: var(--pad); right: auto; bottom: 48px; }
+  .showcase__stage::after {
+    background:
+      linear-gradient(0deg, rgba(5,4,4,.85) 0%, rgba(5,4,4,0) 45%),
+      linear-gradient(180deg, rgba(5,4,4,.5) 0%, rgba(5,4,4,0) 20%),
+      linear-gradient(90deg, rgba(5,4,4,var(--shade-l, .72)) 0%, rgba(5,4,4,0) 80%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .film { animation: none; }
+}
