@@ -165,19 +165,17 @@
       </header>
       <div class="reel" data-reel data-reveal>
         <div class="reel__frame">
-          <div class="reel__slide" style="background-image:url(assets/images/hero.jpg);--o:62% 45%;--s0:1;--s1:1.08" data-label="Frente"></div>
-          <div class="reel__slide" style="background-image:url(assets/images/hero.jpg);--o:56% 22%;--s0:2.6;--s1:2.9" data-label="Luneta"></div>
-          <div class="reel__slide" style="background-image:url(assets/images/hero.jpg);--o:89% 58%;--s0:3;--s1:3.35" data-label="Coroa"></div>
-          <div class="reel__slide" style="background-image:url(assets/images/hero.jpg);--o:56% 92%;--s0:2.8;--s1:3.1" data-label="Carbono forjado"></div>
-          <div class="reel__slide" style="background-image:url(assets/images/explode-final.jpg);--o:50% 50%;--s0:1.12;--s1:1" data-label="Por dentro"></div>
-          <div class="reel__slide reel__slide--end" data-label="AUREN">
-            <span class="reel__mark"><svg class="logo__a" viewBox="0 0 36 40" fill="none" aria-hidden="true"><path d="M2.5 39 L18 4 L33.5 39" stroke="currentColor" stroke-width="3.2"/><circle cx="18" cy="26" r="3.8" fill="var(--copper)"/></svg>UREN</span>
-          </div>
+          <video class="reel__video" muted loop playsinline preload="metadata" poster="assets/images/hero.jpg">
+            <source src="assets/video/relogio-detalhes.mp4" type="video/mp4">
+          </video>
         </div>
         <div class="reel__hud">
           <span class="reel__label" data-reel-label>Frente</span>
-          <div class="reel__track" data-reel-track></div>
-          <button class="reel__toggle" type="button" data-reel-toggle aria-label="Pausar vídeo">Pausar</button>
+          <div class="reel__track" data-reel-track data-labels="Frente|Luneta|Coroa|Carbono forjado|Movimento|AUREN"></div>
+          <div class="reel__controls">
+            <button class="reel__toggle" type="button" data-reel-sound aria-label="Ativar som">Som</button>
+            <button class="reel__toggle" type="button" data-reel-toggle aria-label="Pausar vídeo">Pausar</button>
+          </div>
         </div>
       </div>
     </section>
