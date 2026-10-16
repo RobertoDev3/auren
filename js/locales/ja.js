@@ -18,7 +18,6 @@ window.AUREN_LOCALES.ja = {
     "nav.buy": "購入",
     "nav.bag": "バッグ",
     "hero.homeAria": "AUREN、ホーム",
-    "hero.menu": "メニューを開く",
     "hero.watches": "ウォッチ",
     "hero.warranty": "保証とサービス",
     "hero.stores": "店舗",

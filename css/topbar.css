@@ -32,10 +32,6 @@
 .logo__a { width: .86em; height: .96em; margin-right: .2em; }
 .topbar.is-scrolled .logo { font-size: 17px; }
 
-.burger { width: 22px; height: 12px; display: grid; align-content: space-between; }
-.burger i { display: block; height: 1.5px; background: var(--ink); border-radius: 2px; }
-.burger i:last-child { width: 70%; }
-
 .topbar__center { display: grid; }
 .topbar__links {
   grid-area: 1 / 1;
@@ -156,8 +152,6 @@
   .topbar__center { display: none; }
   .topbar__tools { gap: 6px; }
   .picker--wide, .icon-btn--wide, .topbar__tools .sep { display: none; }
-  .picker--compact { display: block; }
-  .topbar.is-scrolled .burger { display: none; }
   .topbar__buy { margin-left: -6px; }
   .topbar.is-scrolled .topbar__buy { padding: 0 14px; }
 }

@@ -18,7 +18,6 @@ window.AUREN_LOCALES.fr = {
     "nav.buy": "Acheter",
     "nav.bag": "Panier",
     "hero.homeAria": "AUREN, accueil",
-    "hero.menu": "Ouvrir le menu",
     "hero.watches": "Montres",
     "hero.warranty": "Garantie &amp; service",
     "hero.stores": "Boutiques",

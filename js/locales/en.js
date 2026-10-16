@@ -18,7 +18,6 @@ window.AUREN_LOCALES.en = {
     "nav.buy": "Buy",
     "nav.bag": "Bag",
     "hero.homeAria": "AUREN, home page",
-    "hero.menu": "Open menu",
     "hero.watches": "Watches",
     "hero.warranty": "Warranty &amp; Service",
     "hero.stores": "Stores",
