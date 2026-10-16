@@ -1,18 +1,15 @@
-/* =========================================================
-   Explode: o scroll avança o vídeo do relógio desmontando.
-   O hero é o frame 0; cada peça que se solta acende uma
-   anotação ligada a ela por uma linha que acompanha o vídeo.
-   Coordenadas abaixo estão no espaço do vídeo (1280x720).
-   ========================================================= */
+/* Showcase: o scroll avança a sequência de frames do relógio desmontando.
+   Cada peça acende uma anotação ligada a ela por uma linha que acompanha o vídeo.
+   Todas as coordenadas estão no espaço do vídeo (1280x720). */
 window.Explode = (() => {
   const VIDEO = { w: 1280, h: 720, frames: 193 };
   const FRAME_SRC = (i) => `assets/frames/${String(i + 1).padStart(4, "0")}.webp`;
-  const POSTER = "assets/images/hero.jpg";       // = frame 0 em resolução maior
+  const POSTER = "assets/images/hero.jpg"; // frame 0 em resolução maior
 
-  // trecho do scroll em que o vídeo toca (o resto segura o último frame)
+  // trecho do scroll em que o vídeo avança; fora dele segura o primeiro/último frame
   const PLAY = [0.03, 0.9];
 
-  // ponto de cada peça ao longo do vídeo: [frame, x, y] (medido nos frames)
+  // posição de cada peça ao longo do vídeo: [frame, x, y]
   const TRACKS = {
     cristal:   [[48, 590, 405], [96, 355, 305], [120, 240, 268], [144, 212, 245], [192, 180, 228]],
     aro:       [[96, 600, 415], [120, 450, 350], [144, 385, 310], [192, 325, 285]],
@@ -22,7 +19,7 @@ window.Explode = (() => {
     caixa:     [[120, 1100, 300], [144, 1110, 345], [192, 1100, 330]],
   };
 
-  // quando cada anotação acende (frame) e onde o texto fica (espaço do vídeo)
+  // frame em que cada anotação acende e onde o texto fica
   const NOTES = {
     cristal:   { at: 44,  x: 60,   y: 470, side: "below" },
     aro:       { at: 84,  x: 300,  y: 520, side: "below" },
@@ -31,8 +28,9 @@ window.Explode = (() => {
     movimento: { at: 140, x: 860,  y: 150, side: "above" },
     caixa:     { at: 156, x: 1040, y: 150, side: "above" },
   };
+  const NOTE_FRAMES = [0, ...Object.values(NOTES).map((n) => n.at)];
 
-  // celular: a câmera acompanha a peça da vez ([frame, centro x no vídeo])
+  // celular: centro horizontal da câmera ao longo do vídeo, acompanhando a peça da vez: [frame, x]
   const MOBILE_PATH = [[0, 860], [30, 800], [60, 520], [96, 470], [116, 560], [130, 700], [146, 850], [162, 1040], [178, 1040]];
 
   const clamp = (v, a = 0, b = 1) => Math.min(b, Math.max(a, v));
@@ -41,7 +39,6 @@ window.Explode = (() => {
   const ease = (t) => (t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2);
   const SVG = "http://www.w3.org/2000/svg";
 
-  // interpola uma trilha [[frame, ...valores]] no frame f
   function sample(track, f) {
     if (f <= track[0][0]) return track[0].slice(1);
     for (let i = 1; i < track.length; i++) {
@@ -55,21 +52,29 @@ window.Explode = (() => {
     return track[track.length - 1].slice(1);
   }
 
+  // progresso contínuo da barra: chega a k/6 exatamente quando a anotação k acende
+  function notesProgress(f) {
+    const last = NOTE_FRAMES.length - 1;
+    for (let i = 0; i < last; i++) {
+      if (f < NOTE_FRAMES[i + 1]) return (i + (f - NOTE_FRAMES[i]) / (NOTE_FRAMES[i + 1] - NOTE_FRAMES[i])) / last;
+    }
+    return 1;
+  }
+
   let el = {}, seq, size = { w: 0, h: 0, mobile: false };
   let target = 0, current = 0, last = 0, dirty = true, follow = 0.12;
   const mouse = { x: 0, y: 0, tx: 0, ty: 0 };
 
-  // posição do vídeo na tela para o frame f
   function view(f, p) {
     const { w, h, mobile } = size;
     if (!mobile) {
-      // "cover" com o relógio puxado para a direita (igual ao hero)
+      // cobre a tela com o relógio deslocado para a direita, deixando espaço para o texto do hero
       const scale = Math.max(w / VIDEO.w, h / VIDEO.h) * 1.02;
       const x = (w - VIDEO.w * scale) * 0.62 + mouse.x;
       const y = (h - VIDEO.h * scale) * 0.5 + mouse.y;
       return { scale, x, y };
     }
-    // celular: vídeo maior que a tela, câmera segue as peças e no fim recua
+    // celular: vídeo maior que a tela; a câmera segue as peças e recua no final
     const close = (h * 0.7) / VIDEO.h;
     const wide = (w / VIDEO.w) * 1.2;
     const out = ease(range(p, 0.88, 0.97));
@@ -85,7 +90,6 @@ window.Explode = (() => {
     const v = view(f, p);
     seq.draw(f, v);
 
-    // interface do hero sai nos primeiros passos do scroll
     const out = range(p, 0, 0.05);
     el.hero.style.opacity = 1 - out;
     el.hero.style.transform = `translate3d(0, ${-40 * range(p, 0, 0.08)}px, 0)`;
@@ -100,7 +104,7 @@ window.Explode = (() => {
       note.classList.toggle("is-on", on);
 
       if (size.mobile) continue;
-      // texto ancorado no espaço do vídeo, mantido dentro da tela
+      // texto ancorado no vídeo, mantido dentro da tela
       const [ax, ay] = toScreen(v, n.x, n.y);
       const nh = note.offsetHeight, nw = note.offsetWidth;
       const left = clamp(ax, 24, size.w - nw - 24);
@@ -108,7 +112,6 @@ window.Explode = (() => {
       note.style.left = `${left}px`;
       note.style.top = `${top}px`;
 
-      // linha: da peça até a borda do texto
       const [px, py] = sample(TRACKS[name], f);
       const [sx, sy] = toScreen(v, px, py);
       const ex = left + 2, ey = n.side === "above" ? top + nh + 10 : top - 10;
@@ -124,7 +127,7 @@ window.Explode = (() => {
 
     el.progress.style.opacity = range(p, 0.06, 0.12) * (1 - range(p, 0.98, 1));
     el.progressNum.textContent = String(count).padStart(2, "0");
-    el.progress.style.setProperty("--p", (count / 6).toFixed(3));
+    el.progress.style.setProperty("--p", notesProgress(f).toFixed(4));
   }
 
   function readScroll() {
@@ -147,7 +150,7 @@ window.Explode = (() => {
     const prev = current;
     current += (target - current) * k;
     if (Math.abs(target - current) < 0.00005) current = target;
-    // parallax leve do mouse, só enquanto o hero está na tela
+    // parallax do mouse só enquanto o hero está na tela
     const mk = 1 - Math.pow(1 - 0.06, dt / 16.667);
     const fade = 1 - range(current, 0, 0.05);
     const mx = mouse.tx * fade, my = mouse.ty * fade;
@@ -172,7 +175,7 @@ window.Explode = (() => {
 
   function init(section, opts = {}) {
     if (!section) return;
-    if (opts.followScroll) follow = 0.5; // quase direto: evita somar duas inércias
+    if (opts.followScroll) follow = 0.5;
     el.section = section;
     el.stage = section.querySelector(".showcase__stage");
     el.hero = section.querySelector(".hero");
@@ -196,6 +199,7 @@ window.Explode = (() => {
 
     addEventListener("resize", measure);
     addEventListener("scroll", readScroll, { passive: true });
+    document.addEventListener("i18n:change", () => (dirty = true));
     if (!matchMedia("(prefers-reduced-motion: reduce)").matches) {
       section.addEventListener("mousemove", (e) => {
         mouse.tx = (e.clientX / innerWidth - 0.5) * -14;
@@ -206,8 +210,11 @@ window.Explode = (() => {
     requestAnimationFrame(tick);
   }
 
-  // usado nos testes: força um progresso sem suavização
+  // posiciona o vídeo no scroll atual sem animar (usado nos saltos de âncora)
+  function sync() { readScroll(); current = target; dirty = true; }
+
+  // força um progresso sem suavização (testes automatizados)
   function seek(p) { target = current = clamp(p); render(current); }
 
-  return { init, seek, ready: () => seq.frames.every(Boolean) };
+  return { init, sync, seek, ready: () => seq.frames.every(Boolean) };
 })();

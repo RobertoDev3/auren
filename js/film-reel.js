@@ -1,4 +1,5 @@
-/* Vídeo de detalhes: reprodução visível, som opcional e capítulos. */
+/* Vídeo da seção Detalhes: toca sem som só enquanto está na tela.
+   A barra é dividida em capítulos iguais (data-labels) e acompanha o vídeo a cada quadro. */
 window.FilmReel = (() => {
   function init(root) {
     if (!root) return;
@@ -7,34 +8,45 @@ window.FilmReel = (() => {
     const track = root.querySelector("[data-reel-track]");
     const toggle = root.querySelector("[data-reel-toggle]");
     const sound = root.querySelector("[data-reel-sound]");
-    const labels = track.dataset.labels.split("|");
-    const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const t = (k) => I18n.t(k);
 
+    let labels = track.dataset.labels.split("|");
     track.style.setProperty("--n", labels.length);
     track.innerHTML = labels.map(() => "<span><i></i></span>").join("");
     const bars = [...track.children];
+
     let visible = false;
-    let userPaused = reduce;
+    let userPaused = matchMedia("(prefers-reduced-motion: reduce)").matches;
+    let raf = 0;
 
     function syncProgress() {
-      const duration = video.duration || 30;
-      const chapter = duration / labels.length;
-      const index = Math.min(labels.length - 1, Math.floor(video.currentTime / chapter));
-      label.textContent = labels[index];
-      bars.forEach((bar, i) => {
-        const progress = Math.max(0, Math.min(1, (video.currentTime - i * chapter) / chapter));
-        bar.style.setProperty("--progress", progress);
-        bar.setAttribute("aria-label", labels[i]);
-      });
+      const chapter = (video.duration || 30) / labels.length;
+      const time = video.currentTime;
+      label.textContent = labels[Math.min(labels.length - 1, Math.floor(time / chapter))];
+      bars.forEach((bar, i) => bar.style.setProperty("--progress", Math.max(0, Math.min(1, (time - i * chapter) / chapter))));
+    }
+
+    function loop() {
+      syncProgress();
+      raf = video.paused ? 0 : requestAnimationFrame(loop);
+    }
+
+    function syncTexts() {
+      labels = track.dataset.labels.split("|");
+      bars.forEach((bar, i) => bar.setAttribute("aria-label", labels[i]));
+      toggle.textContent = t(userPaused ? "details.play" : "details.pause");
+      toggle.setAttribute("aria-label", t(userPaused ? "details.playAria" : "details.pauseAria"));
+      sound.textContent = t(video.muted ? "details.sound" : "details.mute");
+      sound.setAttribute("aria-label", t(video.muted ? "details.soundAria" : "details.muteAria"));
+      syncProgress();
     }
 
     function syncPlayback() {
       const shouldPlay = visible && !userPaused && !document.hidden;
       root.classList.toggle("is-paused", !shouldPlay);
-      toggle.textContent = userPaused ? "Assistir" : "Pausar";
-      toggle.setAttribute("aria-label", userPaused ? "Continuar vídeo" : "Pausar vídeo");
       if (shouldPlay) video.play().catch(() => {});
       else video.pause();
+      syncTexts();
     }
 
     toggle.addEventListener("click", () => {
@@ -43,21 +55,21 @@ window.FilmReel = (() => {
     });
     sound.addEventListener("click", () => {
       video.muted = !video.muted;
-      sound.textContent = video.muted ? "Som" : "Sem som";
-      sound.setAttribute("aria-label", video.muted ? "Ativar som" : "Desativar som");
       if (!video.muted) video.play().catch(() => {});
+      syncTexts();
     });
     track.addEventListener("click", (e) => {
       const k = bars.indexOf(e.target.closest("span"));
       if (k < 0 || !video.duration) return;
       video.currentTime = k * (video.duration / labels.length);
       syncProgress();
-      syncPlayback();
     });
 
-    video.addEventListener("timeupdate", syncProgress);
+    video.addEventListener("play", () => { if (!raf) raf = requestAnimationFrame(loop); });
+    video.addEventListener("seeked", syncProgress);
     video.addEventListener("loadedmetadata", syncProgress);
     document.addEventListener("visibilitychange", syncPlayback);
+    document.addEventListener("i18n:change", syncTexts);
 
     new IntersectionObserver(([en]) => {
       visible = en.isIntersecting;
