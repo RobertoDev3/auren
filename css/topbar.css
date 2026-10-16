@@ -1,4 +1,4 @@
-/* ===== Barra fixa: aparece quando o hero sai da tela ===== */
+/* ===== Barra fixa: aparece quando o hero sai da tela (Site.topbar) ===== */
 .topbar {
   position: fixed;
   inset: 0 0 auto 0;

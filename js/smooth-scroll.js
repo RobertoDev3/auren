@@ -1,12 +1,7 @@
 /**
- * SmoothScroll — rolagem suave com inércia (sem dependências).
- * Mesmo módulo e mesma configuração do Last Ember (lerp 0.075).
- *
- * - Roda do mouse/trackpad: interpola a posição com lerp, dando a sensação de inércia.
- * - Toque (celular/tablet): mantém a rolagem nativa, que já é suave.
- * - Teclado, barra de rolagem e leitores de tela continuam funcionando normalmente.
- * - Respeita prefers-reduced-motion.
- * - scrollTo(alvo) anima até âncoras com easing.
+ * Rolagem suave com inércia para roda do mouse e trackpad.
+ * Toque, teclado e barra de rolagem continuam nativos; desativada com prefers-reduced-motion.
+ * Elementos com [data-native-scroll] rolam por conta própria.
  */
 (function (window, document) {
   'use strict';
@@ -23,9 +18,9 @@
 
     this.current = window.scrollY;
     this.target = this.current;
-    this.isRunning = false;   // animação de roda em andamento
-    this.isStopped = false;   // pausado (menu/modal abertos)
-    this.tween = null;        // animação programática (scrollTo)
+    this.isRunning = false;
+    this.isStopped = false;   // stop()/start(): para travar a página atrás de modais
+    this.tween = null;        // animação de scrollTo()
     this.rafId = null;
 
     this.wheelEnabled = !reducedMotion && window.matchMedia('(pointer: fine)').matches;
@@ -45,7 +40,6 @@
     return Math.max(0, document.documentElement.scrollHeight - window.innerHeight);
   };
 
-  /** Verifica se o evento ocorreu dentro de um elemento que rola por conta própria */
   SmoothScroll.prototype._isInsideScrollable = function (el, deltaY) {
     while (el && el !== document.body && el !== document.documentElement) {
       if (el.hasAttribute && el.hasAttribute('data-native-scroll')) return true;
@@ -65,7 +59,6 @@
 
   SmoothScroll.prototype._onWheel = function (e) {
     if (this.isStopped || e.ctrlKey || e.defaultPrevented) return;
-    // Gestos horizontais ficam nativos
     if (Math.abs(e.deltaX) > Math.abs(e.deltaY)) return;
     if (this._isInsideScrollable(e.target, e.deltaY)) return;
 
@@ -75,7 +68,7 @@
 
     e.preventDefault();
 
-    // Uma rolagem de roda interrompe qualquer animação de âncora
+    // a roda interrompe uma animação de scrollTo em andamento
     if (this.tween) {
       this.tween = null;
       this.current = window.scrollY;
@@ -87,7 +80,7 @@
   };
 
   SmoothScroll.prototype._onNativeScroll = function () {
-    // Rolagem vinda de teclado, barra de rolagem ou toque: sincroniza o estado
+    // rolagem por teclado, barra ou toque: sincroniza a posição interna
     if (!this.isRunning && !this.tween) {
       this.current = window.scrollY;
       this.target = this.current;
@@ -96,7 +89,7 @@
 
   SmoothScroll.prototype._start = function () {
     this.isRunning = true;
-    if (this.rafId) return; // o laço já está rodando
+    if (this.rafId) return;
     this.lastTime = null;
     this.rafId = window.requestAnimationFrame(this._raf);
   };
@@ -105,8 +98,7 @@
     this.rafId = null;
     if (!this.isRunning) return;
 
-    // Tempo desde o último quadro, normalizado para 60 fps (1 = 16,7 ms).
-    // Limitado para que uma travada do navegador não cause um salto brusco.
+    // tempo do quadro normalizado para 60 fps; limitado para uma travada do navegador não virar salto
     var frames = this.lastTime === null ? 1 : clamp((now - this.lastTime) / (1000 / 60), 0.25, 3);
     this.lastTime = now;
 
@@ -124,7 +116,7 @@
         return;
       }
     } else {
-      // Interpolação independente da taxa de quadros: a mesma sensação a 60, 120 ou 144 Hz
+      // lerp independente da taxa de quadros (mesma sensação a 60, 120 ou 144 Hz)
       var factor = 1 - Math.pow(1 - this.lerp, frames);
       this.current += (this.target - this.current) * factor;
       if (Math.abs(this.target - this.current) < 0.3) this.current = this.target;

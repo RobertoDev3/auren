@@ -1,15 +1,12 @@
-/* =========================================================
-   FrameSequence: carrega uma sequência de imagens e desenha
-   o frame mais próximo já carregado num canvas (modo "cover").
-   Carregamento progressivo: primeiro 1 a cada 8 frames, depois
-   preenche os intervalos, então o scroll funciona desde cedo.
-   ========================================================= */
+/* Sequência de imagens desenhada num canvas.
+   Carrega 1 a cada 8 frames primeiro e depois preenche os intervalos, para o scroll funcionar
+   antes do download terminar; enquanto isso desenha o frame carregado mais próximo. */
 window.FrameSequence = class FrameSequence {
   constructor({ canvas, count, src, width, height, poster }) {
     this.canvas = canvas;
     this.ctx = canvas.getContext("2d");
     this.count = count;
-    this.src = src;               // (i) => url, i de 0..count-1
+    this.src = src; // (i) => url, i de 0 a count-1
     this.w = width;
     this.h = height;
     this.frames = new Array(count);
@@ -39,7 +36,7 @@ window.FrameSequence = class FrameSequence {
       img.onerror = worker;
       img.src = this.src(i);
     };
-    for (let k = 0; k < 6; k++) worker(); // 6 downloads em paralelo
+    for (let k = 0; k < 6; k++) worker(); // downloads em paralelo
   }
 
   nearest(i) {
@@ -62,12 +59,11 @@ window.FrameSequence = class FrameSequence {
     this.drawn = -1;
   }
 
-  // view = { scale, x, y }: posição do vídeo (px CSS) na tela
+  // view = { scale, x, y } em px CSS
   draw(index, view) {
     const i = Math.max(0, Math.min(this.count - 1, Math.round(index)));
     const key = i + ":" + view.scale.toFixed(4) + ":" + view.x.toFixed(1) + ":" + view.y.toFixed(1);
     if (key === this.drawn) return;
-    // no frame 0 usa o pôster (mesma imagem em resolução maior)
     const img = (i === 0 && this.poster) || this.frames[i] || this.nearest(i) || this.poster;
     if (!img) return;
     const ctx = this.ctx;
