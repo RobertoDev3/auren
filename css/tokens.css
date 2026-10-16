@@ -1,0 +1,21 @@
+:root {
+  /* cores */
+  --bg: #050404;
+  --ink: #f3ede6;
+  --muted: #8d847b;
+  --dim: #5d5650;
+  --copper: #d9a17a;
+  --copper-hover: #e7b590;
+  --pill: #1d1a18;
+  --line: rgba(255,255,255,.08);
+  --line-strong: rgba(255,255,255,.16);
+
+  /* tipografia */
+  --font: "Manrope", system-ui, sans-serif;
+
+  /* layout */
+  --pad: clamp(24px, 4.2vw, 72px);
+
+  /* movimento */
+  --ease-out: cubic-bezier(.2, .7, .2, 1);
+}

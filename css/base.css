@@ -1,0 +1,33 @@
+*,
+*::before,
+*::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body { background: var(--bg); }
+
+body {
+  font-family: var(--font);
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: inherit; text-decoration: none; }
+ul { list-style: none; }
+button { font: inherit; color: inherit; background: none; border: 0; cursor: pointer; }
+
+/* entrada */
+.reveal {
+  opacity: 0;
+  transform: translateY(14px);
+  animation: reveal-in 1s var(--ease-out) forwards;
+  animation-delay: var(--d, 0s);
+}
+@keyframes reveal-in { to { opacity: 1; transform: none; } }
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal { animation: none; opacity: 1; transform: none; }
+}
+
+html { scroll-padding-top: 64px; }
+img { display: block; max-width: 100%; }
+::selection { background: var(--copper); color: #1a0f08; }
+[hidden] { display: none !important; }
