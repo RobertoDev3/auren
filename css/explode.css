@@ -31,6 +31,8 @@
   height: 100%;
 }
 .film__lines { overflow: visible; }
+.film__lines line,
+.film__lines circle { opacity: 0; } /* o Explode acende cada linha quando a peça se solta */
 .film__lines line {
   stroke: rgba(243,237,230,.5);
   stroke-width: 1;
@@ -44,7 +46,6 @@
   fill: none;
   stroke: var(--copper);
   stroke-width: 1;
-  opacity: .5;
 }
 
 /* --shade-l é animado pelo Explode */
