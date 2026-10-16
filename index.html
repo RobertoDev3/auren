@@ -29,25 +29,26 @@
   <link rel="stylesheet" href="css/topbar.css">
   <link rel="stylesheet" href="css/sections.css">
   <link rel="stylesheet" href="css/footer.css">
+  <link rel="stylesheet" href="css/overlays.css">
 </head>
 <body>
 
-  <header class="topbar" id="topbar" aria-label="Navegação">
-    <a class="logo topbar__logo" href="#hero" aria-label="AUREN, voltar ao início"><svg class="logo__a" viewBox="0 0 36 40" fill="none" aria-hidden="true"><path d="M2.5 39 L18 4 L33.5 39" stroke="currentColor" stroke-width="3.2"/><circle cx="18" cy="26" r="3.8" fill="var(--copper)"/></svg>UREN</a>
-    <nav class="topbar__links" aria-label="Seções">
-      <a href="#manifesto">O relógio</a>
-      <a href="#detalhes">Detalhes</a>
-      <a href="#especificacoes">Especificações</a>
-      <a href="#colecao">Coleção</a>
-      <a href="#servicos">Assistência</a>
+  <header class="topbar" id="topbar" aria-label="Navegação" data-i18n-attr="aria-label:nav.label">
+    <a class="logo topbar__logo" href="#hero" aria-label="AUREN, voltar ao início" data-i18n-attr="aria-label:nav.homeAria"><svg class="logo__a" viewBox="0 0 36 40" fill="none" aria-hidden="true"><path d="M2.5 39 L18 4 L33.5 39" stroke="currentColor" stroke-width="3.2"/><circle cx="18" cy="26" r="3.8" fill="var(--copper)"/></svg>UREN</a>
+    <nav class="topbar__links" aria-label="Seções" data-i18n-attr="aria-label:nav.sections">
+      <a href="#manifesto" data-i18n="nav.watch">O relógio</a>
+      <a href="#detalhes" data-i18n="nav.details">Detalhes</a>
+      <a href="#especificacoes" data-i18n="nav.specs">Especificações</a>
+      <a href="#colecao" data-i18n="nav.collection">Coleção</a>
+      <a href="#servicos" data-i18n="nav.service">Assistência</a>
     </nav>
     <div class="topbar__tools">
-      <button class="icon-btn" type="button" aria-label="Sacola" data-bag><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M6 8h12l-1 12H7L6 8z"/><path d="M9 8V6a3 3 0 016 0v2"/></svg><span class="badge" data-bag-count>0</span></button>
-      <a class="topbar__buy" href="#comprar">Comprar</a>
+      <button class="icon-btn" type="button" aria-label="Sacola" data-i18n-attr="aria-label:nav.bag" aria-controls="bag" aria-expanded="false" data-bag><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M6 8h12l-1 12H7L6 8z"/><path d="M9 8V6a3 3 0 016 0v2"/></svg><span class="badge" data-bag-count hidden>0</span></button>
+      <a class="topbar__buy" href="#comprar" data-i18n="nav.buy">Comprar</a>
     </div>
   </header>
 
-  <section class="showcase" id="showcase" aria-label="OBSIDIAN em detalhes">
+  <section class="showcase" id="showcase" aria-label="OBSIDIAN em detalhes" data-i18n-attr="aria-label:showcase.label">
     <div class="showcase__stage">
       <div class="film" aria-hidden="true">
         <canvas class="film__canvas"></canvas>
@@ -55,36 +56,36 @@
       </div>
 
       <div class="notes">
-          <article class="note note--below" data-part="cristal">
-            <span class="note__num">01</span>
-            <h2 class="note__title">Cristal de safira</h2>
-            <p class="note__text">Safira sintética com antirreflexo nas duas faces. Dureza 9 na escala Mohs: só o diamante risca.</p>
-          </article>
-          <article class="note note--below" data-part="aro">
-            <span class="note__num">02</span>
-            <h2 class="note__title">Luneta em ouro 18k</h2>
-            <p class="note__text">Polida à mão em três etapas até o espelho, 44 mm de diâmetro.</p>
-          </article>
-          <article class="note note--below" data-part="ponteiros">
-            <span class="note__num">03</span>
-            <h2 class="note__title">Ponteiros facetados</h2>
-            <p class="note__text">Ouro aplicado com Super-LumiNova®, legíveis no escuro total.</p>
-          </article>
-          <article class="note note--above" data-part="mostrador">
-            <span class="note__num">04</span>
-            <h2 class="note__title">Mostrador em camadas</h2>
-            <p class="note__text">Centro texturizado em bronze e três submostradores do cronógrafo.</p>
-          </article>
-          <article class="note note--above" data-part="movimento">
-            <span class="note__num">05</span>
-            <h2 class="note__title">Calibre AU-262</h2>
-            <p class="note__text">Quartzo de alta frequência a 262 kHz. Desvio de ±10 segundos por ano.</p>
-          </article>
-          <article class="note note--above" data-part="caixa">
-            <span class="note__num">06</span>
-            <h2 class="note__title">Carbono forjado</h2>
-            <p class="note__text">Flocos de ouro prensados na fibra: nenhuma caixa é igual à outra.</p>
-          </article>
+        <article class="note note--below" data-part="cristal">
+          <span class="note__num">01</span>
+          <h2 class="note__title" data-i18n="note.cristal.title">Cristal de safira</h2>
+          <p class="note__text" data-i18n="note.cristal.text">Safira sintética com antirreflexo nas duas faces. Dureza 9 na escala Mohs: só o diamante risca.</p>
+        </article>
+        <article class="note note--below" data-part="aro">
+          <span class="note__num">02</span>
+          <h2 class="note__title" data-i18n="note.aro.title">Luneta em ouro 18k</h2>
+          <p class="note__text" data-i18n="note.aro.text">Polida à mão em três etapas até o espelho, 44 mm de diâmetro.</p>
+        </article>
+        <article class="note note--below" data-part="ponteiros">
+          <span class="note__num">03</span>
+          <h2 class="note__title" data-i18n="note.ponteiros.title">Ponteiros facetados</h2>
+          <p class="note__text" data-i18n="note.ponteiros.text">Ouro aplicado com Super-LumiNova®, legíveis no escuro total.</p>
+        </article>
+        <article class="note note--above" data-part="mostrador">
+          <span class="note__num">04</span>
+          <h2 class="note__title" data-i18n="note.mostrador.title">Mostrador em camadas</h2>
+          <p class="note__text" data-i18n="note.mostrador.text">Centro texturizado em bronze e três submostradores do cronógrafo.</p>
+        </article>
+        <article class="note note--above" data-part="movimento">
+          <span class="note__num">05</span>
+          <h2 class="note__title" data-i18n="note.movimento.title">Calibre AU-262</h2>
+          <p class="note__text" data-i18n="note.movimento.text">Quartzo de alta frequência a 262 kHz. Desvio de ±10 segundos por ano.</p>
+        </article>
+        <article class="note note--above" data-part="caixa">
+          <span class="note__num">06</span>
+          <h2 class="note__title" data-i18n="note.caixa.title">Carbono forjado</h2>
+          <p class="note__text" data-i18n="note.caixa.text">Flocos de ouro prensados na fibra: nenhuma caixa é igual à outra.</p>
+        </article>
       </div>
 
       <div class="progress" aria-hidden="true">
@@ -97,71 +98,81 @@
 
       <header class="hero" id="hero">
         <div class="hero__inner">
-      <nav class="nav reveal" style="--d:.2s" aria-label="Principal">
-        <div class="brand">
-          <a class="logo" href="/" aria-label="AUREN, página inicial">
-            <svg class="logo__a" viewBox="0 0 36 40" fill="none" aria-hidden="true">
-              <path d="M2.5 39 L18 4 L33.5 39" stroke="currentColor" stroke-width="3.2"/>
-              <circle cx="18" cy="26" r="3.8" fill="var(--copper)"/>
-            </svg>UREN
-          </a>
-          <button class="burger" type="button" aria-label="Abrir menu"><i></i><i></i></button>
+          <nav class="nav reveal" style="--d:.2s" aria-label="Principal" data-i18n-attr="aria-label:nav.main">
+            <div class="brand">
+              <a class="logo" href="#hero" aria-label="AUREN, página inicial" data-i18n-attr="aria-label:hero.homeAria">
+                <svg class="logo__a" viewBox="0 0 36 40" fill="none" aria-hidden="true">
+                  <path d="M2.5 39 L18 4 L33.5 39" stroke="currentColor" stroke-width="3.2"/>
+                  <circle cx="18" cy="26" r="3.8" fill="var(--copper)"/>
+                </svg>UREN
+              </a>
+              <button class="burger" type="button" aria-label="Abrir menu" data-i18n-attr="aria-label:hero.menu" data-unavailable><i></i><i></i></button>
+            </div>
+
+            <ul class="links">
+              <li><a href="#colecao" class="is-active" data-i18n="hero.watches">Relógios</a></li>
+              <li><a href="#servicos" data-i18n="hero.warranty">Garantia &amp; Assistência</a></li>
+              <li><a href="#boutiques" data-i18n="hero.stores">Lojas</a></li>
+            </ul>
+
+            <div class="tools">
+          <div class="picker picker--wide" data-picker="currency">
+            <button class="pill" type="button" aria-haspopup="true" aria-expanded="false" aria-label="Moeda" data-i18n-attr="aria-label:hero.currency"><span data-picker-value>BRL</span><svg viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M1 1l4 4 4-4"/></svg></button>
+            <div class="picker__menu" data-picker-menu></div>
+          </div>
+          <div class="picker picker--wide" data-picker="lang">
+            <button class="pill" type="button" aria-haspopup="true" aria-expanded="false" aria-label="Idioma" data-i18n-attr="aria-label:hero.language"><span data-picker-value>PT</span><svg viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M1 1l4 4 4-4"/></svg></button>
+            <div class="picker__menu" data-picker-menu></div>
+          </div>
+          <div class="picker picker--compact" data-picker="lang currency">
+            <button class="pill" type="button" aria-haspopup="true" aria-expanded="false" aria-label="Idioma" data-i18n-attr="aria-label:hero.language"><span data-picker-value>PT · BRL</span><svg viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M1 1l4 4 4-4"/></svg></button>
+            <div class="picker__menu" data-picker-menu></div>
+          </div>
+              <span class="sep" aria-hidden="true"></span>
+              <button class="icon-btn icon-btn--wide" type="button" aria-label="Favoritos" data-i18n-attr="aria-label:hero.favorites" data-unavailable><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 017-2.6A4 4 0 0119 10c0 5.6-7 10-7 10z"/></svg></button>
+              <button class="icon-btn icon-btn--wide" type="button" aria-label="Conta" data-i18n-attr="aria-label:hero.account" data-unavailable><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="10" r="3"/><path d="M6.5 18.5c1.5-2 3.4-3 5.5-3s4 1 5.5 3"/></svg></button>
+              <button class="icon-btn" type="button" aria-label="Sacola" data-i18n-attr="aria-label:nav.bag" aria-controls="bag" aria-expanded="false" data-bag><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M6 8h12l-1 12H7L6 8z"/><path d="M9 8V6a3 3 0 016 0v2"/></svg><span class="badge" data-bag-count hidden>0</span></button>
+            </div>
+          </nav>
+
+          <div class="meta reveal" style="--d:.35s">
+            <span class="limited" data-i18n="hero.limited">Edição limitada a <b>50 peças</b></span>
+            <span class="available" data-i18n="hero.available">Disponível</span>
+          </div>
+
+          <div class="product">
+            <p class="ref reveal" style="--d:.5s">AU-3715R-BK</p>
+            <h1 class="name reveal" style="--d:.6s">OBSIDIAN</h1>
+            <p class="price reveal" style="--d:.75s"><span data-price="168900" data-price-cents>R$ 168.900,00</span> <small data-i18n="hero.installments">ou 12x sem juros</small></p>
+            <a class="buy reveal" style="--d:.85s" href="#comprar" data-i18n="hero.buy">Comprar</a>
+          </div>
         </div>
-
-        <ul class="links">
-          <li><a href="#colecao" class="is-active">Relógios</a></li>
-          <li><a href="#servicos">Garantia &amp; Assistência</a></li>
-          <li><a href="#boutiques">Lojas</a></li>
-        </ul>
-
-        <div class="tools">
-          <button class="pill" type="button">BRL <svg viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M1 1l4 4 4-4"/></svg></button>
-          <button class="pill" type="button">PT <svg viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M1 1l4 4 4-4"/></svg></button>
-          <span class="sep" aria-hidden="true"></span>
-          <button class="icon-btn" type="button" aria-label="Favoritos"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 017-2.6A4 4 0 0119 10c0 5.6-7 10-7 10z"/></svg></button>
-          <button class="icon-btn" type="button" aria-label="Conta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="10" r="3"/><path d="M6.5 18.5c1.5-2 3.4-3 5.5-3s4 1 5.5 3"/></svg></button>
-          <button class="icon-btn" type="button" aria-label="Sacola" data-bag><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M6 8h12l-1 12H7L6 8z"/><path d="M9 8V6a3 3 0 016 0v2"/></svg><span class="badge" data-bag-count>0</span></button>
-        </div>
-      </nav>
-
-      <div class="meta reveal" style="--d:.35s">
-        <span class="limited">Edição limitada a <b>50 peças</b></span>
-        <span class="available">Disponível</span>
-      </div>
-
-      <div class="product">
-        <p class="ref reveal" style="--d:.5s">AU-3715R-BK</p>
-        <h1 class="name reveal" style="--d:.6s">OBSIDIAN</h1>
-        <p class="price reveal" style="--d:.75s">R$ 168.900,00 <small>ou 12x sem juros</small></p>
-        <a class="buy reveal" style="--d:.85s" href="#comprar">Comprar</a>
-      </div>
-        </div>
-        <div class="scroll-cue reveal" style="--d:1.2s" aria-hidden="true"><span>Role para desmontar</span><i></i></div>
+        <div class="scroll-cue reveal" style="--d:1.2s" aria-hidden="true"><span data-i18n="hero.cue">Role para desmontar</span><i></i></div>
       </header>
     </div>
   </section>
 
   <main>
-    <!-- ===== Manifesto ===== -->
+    <!-- O relógio -->
     <section class="manifesto" id="manifesto">
       <div class="manifesto__media" aria-hidden="true"><img src="assets/images/pulso.jpg" alt="" loading="lazy"></div>
       <div class="manifesto__inner">
-        <p class="eyebrow" data-reveal>O relógio</p>
-        <h2 class="manifesto__title" data-reveal>Cinquenta peças.<br><span>Nenhuma igual à outra.</span></h2>
-        <p class="manifesto__text" data-reveal>Cada caixa do OBSIDIAN nasce de fibras de carbono e flocos de ouro prensados a 200 toneladas. O desenho que aparece na superfície é decidido pela própria matéria, e por isso cada relógio sai do ateliê com um padrão que não se repete.</p>
+        <p class="eyebrow" data-reveal data-i18n="watch.eyebrow">O relógio</p>
+        <h2 class="manifesto__title" data-reveal data-i18n="watch.title">Cinquenta peças.<br><span>Nenhuma igual à outra.</span></h2>
+        <p class="manifesto__text" data-reveal data-i18n="watch.text">Cada caixa do OBSIDIAN nasce de fibras de carbono e flocos de ouro prensados a 200 toneladas. O desenho que aparece na superfície é decidido pela própria matéria, e por isso cada relógio sai do ateliê com um padrão que não se repete.</p>
         <ul class="manifesto__facts" data-reveal>
-          <li><b>44 mm</b><span>caixa octogonal</span></li>
-          <li><b>13,2 mm</b><span>de espessura</span></li>
-          <li><b>100 m</b><span>resistência à água</span></li>
+          <li><b data-i18n="watch.fact1.value">44 mm</b><span data-i18n="watch.fact1.label">caixa octogonal</span></li>
+          <li><b data-i18n="watch.fact2.value">13,2 mm</b><span data-i18n="watch.fact2.label">de espessura</span></li>
+          <li><b data-i18n="watch.fact3.value">100 m</b><span data-i18n="watch.fact3.label">resistência à água</span></li>
         </ul>
       </div>
     </section>
 
-    <!-- ===== Detalhes (vídeo das cenas) ===== -->
-    <section class="film-sec" id="detalhes" aria-label="Detalhes do OBSIDIAN">
+    <!-- Detalhes -->
+    <section class="film-sec" id="detalhes" aria-label="Detalhes do OBSIDIAN" data-i18n-attr="aria-label:details.label">
       <header class="film-sec__head">
-        <p class="eyebrow" data-reveal>Detalhes</p>
-        <h2 class="film-sec__title" data-reveal>Feito para ser visto de perto.</h2>
+        <p class="eyebrow" data-reveal data-i18n="details.eyebrow">Detalhes</p>
+        <h2 class="film-sec__title" data-reveal data-i18n="details.title">Feito para ser visto de perto.</h2>
       </header>
       <div class="reel" data-reel data-reveal>
         <div class="reel__frame">
@@ -171,7 +182,7 @@
         </div>
         <div class="reel__hud">
           <span class="reel__label" data-reel-label>Frente</span>
-          <div class="reel__track" data-reel-track data-labels="Frente|Luneta|Coroa|Carbono forjado|Movimento|AUREN"></div>
+          <div class="reel__track" data-reel-track data-labels="Frente|Luneta|Coroa|Carbono forjado|Movimento|AUREN" data-i18n-attr="data-labels:details.chapters"></div>
           <div class="reel__controls">
             <button class="reel__toggle" type="button" data-reel-sound aria-label="Ativar som">Som</button>
             <button class="reel__toggle" type="button" data-reel-toggle aria-label="Pausar vídeo">Pausar</button>
@@ -180,162 +191,178 @@
       </div>
     </section>
 
-    <!-- ===== Especificações ===== -->
+    <!-- Especificações -->
     <section class="specs" id="especificacoes">
       <div class="specs__intro">
-        <p class="eyebrow" data-reveal>Especificações</p>
+        <p class="eyebrow" data-reveal data-i18n="specs.eyebrow">Especificações</p>
         <h2 class="specs__title" data-reveal>OBSIDIAN<br><span>AU-3715R-BK</span></h2>
-        <figure class="specs__figure" data-reveal><img src="assets/images/explode-final.jpg" alt="O OBSIDIAN desmontado, peça por peça" loading="lazy"></figure>
+        <figure class="specs__figure" data-reveal><img src="assets/images/explode-final.jpg" alt="O OBSIDIAN desmontado, peça por peça" data-i18n-attr="alt:specs.figureAlt" loading="lazy"></figure>
       </div>
       <dl class="specs__list">
-        <div data-reveal><dt>Caixa</dt><dd>Carbono forjado com flocos de ouro, octogonal</dd></div>
-        <div data-reveal><dt>Diâmetro</dt><dd>44 mm, 13,2 mm de espessura</dd></div>
-        <div data-reveal><dt>Luneta</dt><dd>Ouro amarelo 18k polido, 4 parafusos sextavados</dd></div>
-        <div data-reveal><dt>Vidro</dt><dd>Safira com antirreflexo nas duas faces</dd></div>
-        <div data-reveal><dt>Movimento</dt><dd>Calibre AU-262, quartzo de alta frequência</dd></div>
-        <div data-reveal><dt>Funções</dt><dd>Horas, minutos, cronógrafo 1/10 s, segundos pequenos</dd></div>
-        <div data-reveal><dt>Precisão</dt><dd>±10 segundos por ano</dd></div>
-        <div data-reveal><dt>Bateria</dt><dd>Até 4 anos, com aviso de fim de vida</dd></div>
-        <div data-reveal><dt>Água</dt><dd>100 m (10 ATM), coroa rosqueada</dd></div>
-        <div data-reveal><dt>Pulseira</dt><dd>Borracha FKM preta, fecho deployant em ouro</dd></div>
-        <div data-reveal><dt>Edição</dt><dd>50 peças numeradas, gravadas no fundo da caixa</dd></div>
+        <div data-reveal><dt data-i18n="specs.case">Caixa</dt><dd data-i18n="specs.caseValue">Carbono forjado com flocos de ouro, octogonal</dd></div>
+        <div data-reveal><dt data-i18n="specs.diameter">Diâmetro</dt><dd data-i18n="specs.diameterValue">44 mm, 13,2 mm de espessura</dd></div>
+        <div data-reveal><dt data-i18n="specs.bezel">Luneta</dt><dd data-i18n="specs.bezelValue">Ouro amarelo 18k polido, 4 parafusos sextavados</dd></div>
+        <div data-reveal><dt data-i18n="specs.crystal">Vidro</dt><dd data-i18n="specs.crystalValue">Safira com antirreflexo nas duas faces</dd></div>
+        <div data-reveal><dt data-i18n="specs.movement">Movimento</dt><dd data-i18n="specs.movementValue">Calibre AU-262, quartzo de alta frequência</dd></div>
+        <div data-reveal><dt data-i18n="specs.functions">Funções</dt><dd data-i18n="specs.functionsValue">Horas, minutos, cronógrafo 1/10 s, segundos pequenos</dd></div>
+        <div data-reveal><dt data-i18n="specs.accuracy">Precisão</dt><dd data-i18n="specs.accuracyValue">±10 segundos por ano</dd></div>
+        <div data-reveal><dt data-i18n="specs.battery">Bateria</dt><dd data-i18n="specs.batteryValue">Até 4 anos, com aviso de fim de vida</dd></div>
+        <div data-reveal><dt data-i18n="specs.water">Água</dt><dd data-i18n="specs.waterValue">100 m (10 ATM), coroa rosqueada</dd></div>
+        <div data-reveal><dt data-i18n="specs.strap">Pulseira</dt><dd data-i18n="specs.strapValue">Borracha FKM preta, fecho deployant em ouro</dd></div>
+        <div data-reveal><dt data-i18n="specs.edition">Edição</dt><dd data-i18n="specs.editionValue">50 peças numeradas, gravadas no fundo da caixa</dd></div>
       </dl>
     </section>
 
-    <!-- ===== Coleção ===== -->
+    <!-- Coleção -->
     <section class="collection" id="colecao">
       <header class="collection__head">
-        <p class="eyebrow" data-reveal>Coleção AU-37</p>
-        <h2 class="collection__title" data-reveal>Três leituras do mesmo relógio.</h2>
+        <p class="eyebrow" data-reveal data-i18n="collection.eyebrow">Coleção AU-37</p>
+        <h2 class="collection__title" data-reveal data-i18n="collection.title">Três leituras do mesmo relógio.</h2>
       </header>
       <ul class="collection__grid">
         <li class="watch-card is-current" data-reveal>
           <a href="#comprar">
-            <figure><img src="assets/images/colecao-obsidian.jpg" alt="AUREN OBSIDIAN, carbono forjado e ouro" loading="lazy"></figure>
+            <figure><img src="assets/images/colecao-obsidian.jpg" alt="AUREN OBSIDIAN, carbono forjado e ouro" data-i18n-attr="alt:collection.obsidianAlt" loading="lazy"></figure>
             <div class="watch-card__info">
               <h3>OBSIDIAN</h3>
-              <p>Carbono forjado · ouro 18k</p>
-              <span class="watch-card__price">R$ 168.900</span>
+              <p data-i18n="collection.obsidian">Carbono forjado · ouro 18k</p>
+              <span class="watch-card__price" data-price="168900">R$ 168.900</span>
             </div>
-            <span class="watch-card__tag">Você está vendo</span>
+            <span class="watch-card__tag" data-i18n="collection.current">Você está vendo</span>
           </a>
         </li>
         <li class="watch-card" data-reveal style="--d:.1s">
           <a href="#colecao">
-            <figure><img src="assets/images/colecao-eclipse.jpg" alt="AUREN ECLIPSE, todo preto" loading="lazy"></figure>
+            <figure><img src="assets/images/colecao-eclipse.jpg" alt="AUREN ECLIPSE, todo preto" data-i18n-attr="alt:collection.eclipseAlt" loading="lazy"></figure>
             <div class="watch-card__info">
               <h3>ECLIPSE</h3>
-              <p>Carbono fosco · titânio DLC</p>
-              <span class="watch-card__price">R$ 142.500</span>
+              <p data-i18n="collection.eclipse">Carbono fosco · titânio DLC</p>
+              <span class="watch-card__price" data-price="142500">R$ 142.500</span>
             </div>
           </a>
         </li>
         <li class="watch-card" data-reveal style="--d:.2s">
           <a href="#colecao">
-            <figure><img src="assets/images/colecao-glacier.jpg" alt="AUREN GLACIER, titânio e mostrador azul" loading="lazy"></figure>
+            <figure><img src="assets/images/colecao-glacier.jpg" alt="AUREN GLACIER, titânio e mostrador azul" data-i18n-attr="alt:collection.glacierAlt" loading="lazy"></figure>
             <div class="watch-card__info">
               <h3>GLACIER</h3>
-              <p>Titânio grau 5 · mostrador gelo</p>
-              <span class="watch-card__price">R$ 126.000</span>
+              <p data-i18n="collection.glacier">Titânio grau 5 · mostrador gelo</p>
+              <span class="watch-card__price" data-price="126000">R$ 126.000</span>
             </div>
-            <span class="watch-card__tag watch-card__tag--soon">Esgotado</span>
+            <span class="watch-card__tag watch-card__tag--soon" data-i18n="collection.soldOut">Esgotado</span>
           </a>
         </li>
       </ul>
     </section>
 
-    <!-- ===== Compra ===== -->
+    <!-- Compra -->
     <section class="purchase" id="comprar">
       <figure class="purchase__media" data-reveal><img src="assets/images/colecao-obsidian.jpg" alt="" loading="lazy"></figure>
       <div class="purchase__panel">
         <p class="eyebrow" data-reveal>AU-3715R-BK</p>
         <h2 class="purchase__title" data-reveal>OBSIDIAN</h2>
-        <p class="purchase__price" data-reveal>R$ 168.900,00 <small>ou 12x de R$ 14.075,00 sem juros</small></p>
+        <p class="purchase__price" data-reveal><span data-price="168900" data-price-cents>R$ 168.900,00</span> <small data-price="168900" data-price-format="installment">ou 12x de R$ 14.075,00 sem juros</small></p>
 
         <div class="edition" data-reveal>
-          <div class="edition__row"><span>Peça nº <b>27</b> de 50</span><span>23 disponíveis</span></div>
+          <div class="edition__row"><span data-i18n="buy.piece">Peça nº <b>27</b> de 50</span><span data-i18n="buy.left">23 disponíveis</span></div>
           <div class="edition__bar"><i style="--p:.54"></i></div>
         </div>
 
         <fieldset class="option" data-reveal>
-          <legend>Pulseira</legend>
+          <legend data-i18n="buy.strap">Pulseira</legend>
           <div class="option__choices" data-choices>
-            <button type="button" class="is-on">Borracha preta</button>
-            <button type="button">Couro de jacaré</button>
-            <button type="button">Bracelete de carbono</button>
+            <button type="button" class="is-on" data-strap="0" data-i18n="strap.0">Borracha preta</button>
+            <button type="button" data-strap="1" data-i18n="strap.1">Couro de jacaré</button>
+            <button type="button" data-strap="2" data-i18n="strap.2">Bracelete de carbono</button>
           </div>
         </fieldset>
 
         <label class="engrave" data-reveal>
-          <span>Gravação no fundo <small>(opcional, até 20 caracteres)</small></span>
-          <input type="text" maxlength="20" placeholder="Ex.: R.T. 06·09" data-engrave>
+          <span data-i18n="buy.engrave">Gravação no fundo <small>(opcional, até 20 caracteres)</small></span>
+          <input type="text" maxlength="20" placeholder="Ex.: R.T. 06·09" data-i18n-attr="placeholder:buy.engravePlaceholder" data-engrave>
         </label>
 
         <div class="purchase__actions" data-reveal>
-          <button class="btn btn--primary" type="button" data-add-to-bag>Adicionar à sacola</button>
-          <a class="btn btn--ghost" href="#boutiques">Agendar visita</a>
+          <button class="btn btn--primary" type="button" data-add-to-bag data-i18n="buy.add">Adicionar à sacola</button>
+          <a class="btn btn--ghost" href="#boutiques" data-i18n="buy.visit">Agendar visita</a>
         </div>
 
         <ul class="purchase__perks" data-reveal>
-          <li>Entrega segurada em até 3 dias úteis</li>
-          <li>Garantia internacional de 5 anos</li>
-          <li>Estojo em nogueira com certificado numerado</li>
+          <li data-i18n="buy.perk1">Entrega segurada em até 3 dias úteis</li>
+          <li data-i18n="buy.perk2">Garantia internacional de 5 anos</li>
+          <li data-i18n="buy.perk3">Estojo em nogueira com certificado numerado</li>
         </ul>
       </div>
     </section>
 
-    <!-- ===== Garantia, assistência e lojas ===== -->
+    <!-- Garantia, assistência e boutiques -->
     <section class="services" id="servicos">
       <div class="services__col">
-        <p class="eyebrow" data-reveal>Garantia &amp; Assistência</p>
-        <h2 class="services__title" data-reveal>Um relógio para a vida inteira.</h2>
+        <p class="eyebrow" data-reveal data-i18n="service.eyebrow">Garantia &amp; Assistência</p>
+        <h2 class="services__title" data-reveal data-i18n="service.title">Um relógio para a vida inteira.</h2>
         <ol class="services__list">
-          <li data-reveal><span>01</span><div><h3>5 anos de garantia</h3><p>Cobertura internacional contra defeitos de fabricação, registrada no seu nome e no número da peça.</p></div></li>
-          <li data-reveal><span>02</span><div><h3>Revisão no ateliê</h3><p>A cada quatro anos, troca de bateria, juntas e teste de estanqueidade, com retirada e entrega na sua casa.</p></div></li>
-          <li data-reveal><span>03</span><div><h3>Peças para sempre</h3><p>Mantemos componentes de cada edição em estoque. O seu OBSIDIAN sempre terá conserto.</p></div></li>
+          <li data-reveal><span>01</span><div><h3 data-i18n="service.1.title">5 anos de garantia</h3><p data-i18n="service.1.text">Cobertura internacional contra defeitos de fabricação, registrada no seu nome e no número da peça.</p></div></li>
+          <li data-reveal><span>02</span><div><h3 data-i18n="service.2.title">Revisão no ateliê</h3><p data-i18n="service.2.text">A cada quatro anos, troca de bateria, juntas e teste de estanqueidade, com retirada e entrega na sua casa.</p></div></li>
+          <li data-reveal><span>03</span><div><h3 data-i18n="service.3.title">Peças para sempre</h3><p data-i18n="service.3.text">Mantemos componentes de cada edição em estoque. O seu OBSIDIAN sempre terá conserto.</p></div></li>
         </ol>
       </div>
       <div class="services__col" id="boutiques">
-        <p class="eyebrow" data-reveal>Boutiques</p>
+        <p class="eyebrow" data-reveal data-i18n="stores.eyebrow">Boutiques</p>
         <ul class="stores">
-          <li data-reveal><h3>São Paulo</h3><p>Rua Oscar Freire, 912 · Jardins</p><span>Seg. a sáb., 10h às 20h</span></li>
-          <li data-reveal><h3>Rio de Janeiro</h3><p>Av. Ataulfo de Paiva, 1100 · Leblon</p><span>Seg. a sáb., 10h às 19h</span></li>
-          <li data-reveal><h3>Lisboa</h3><p>Avenida da Liberdade, 180</p><span>Seg. a sáb., 10h às 19h</span></li>
+          <li data-reveal><h3 data-i18n="stores.saoPaulo">São Paulo</h3><p>Rua Oscar Freire, 912 · Jardins</p><span data-i18n="stores.hours20">Seg. a sáb., 10h às 20h</span></li>
+          <li data-reveal><h3 data-i18n="stores.rio">Rio de Janeiro</h3><p>Av. Ataulfo de Paiva, 1100 · Leblon</p><span data-i18n="stores.hours19">Seg. a sáb., 10h às 19h</span></li>
+          <li data-reveal><h3 data-i18n="stores.lisbon">Lisboa</h3><p>Avenida da Liberdade, 180</p><span data-i18n="stores.hours19">Seg. a sáb., 10h às 19h</span></li>
         </ul>
       </div>
     </section>
   </main>
 
-  <!-- ===== Rodapé ===== -->
   <footer class="footer">
     <div class="footer__top">
       <form class="newsletter" data-newsletter>
-        <label for="news-email">Seja avisado da próxima edição limitada.</label>
+        <label for="news-email" data-i18n="footer.newsletter">Seja avisado da próxima edição limitada.</label>
         <div class="newsletter__field">
-          <input id="news-email" type="email" placeholder="seu@email.com" required>
-          <button type="submit">Avise-me</button>
+          <input id="news-email" type="email" placeholder="seu@email.com" data-i18n-attr="placeholder:footer.emailPlaceholder" required>
+          <button type="submit" data-i18n="footer.notify">Avise-me</button>
         </div>
-        <p class="newsletter__ok" role="status" hidden>Pronto. Você será o primeiro a saber.</p>
+        <p class="newsletter__ok" role="status" hidden data-i18n="footer.ok">Pronto. Você será o primeiro a saber.</p>
       </form>
-      <nav class="footer__cols" aria-label="Rodapé">
-        <div><h4>Relógios</h4><a href="#colecao">OBSIDIAN</a><a href="#colecao">ECLIPSE</a><a href="#colecao">GLACIER</a></div>
-        <div><h4>Atendimento</h4><a href="#servicos">Garantia</a><a href="#servicos">Assistência</a><a href="#boutiques">Boutiques</a></div>
-        <div><h4>A marca</h4><a href="#manifesto">O relógio</a><a href="#detalhes">Detalhes</a><a href="#hero">Instagram</a></div>
+      <nav class="footer__cols" aria-label="Rodapé" data-i18n-attr="aria-label:footer.label">
+        <div><h4 data-i18n="footer.watches">Relógios</h4><a href="#colecao">OBSIDIAN</a><a href="#colecao">ECLIPSE</a><a href="#colecao">GLACIER</a></div>
+        <div><h4 data-i18n="footer.care">Atendimento</h4><a href="#servicos" data-i18n="footer.warranty">Garantia</a><a href="#servicos" data-i18n="footer.assistance">Assistência</a><a href="#boutiques" data-i18n="footer.boutiques">Boutiques</a></div>
+        <div><h4 data-i18n="footer.brand">A marca</h4><a href="#manifesto" data-i18n="nav.watch">O relógio</a><a href="#detalhes" data-i18n="nav.details">Detalhes</a><a href="#" data-unavailable>Instagram</a></div>
       </nav>
     </div>
     <div class="footer__mark" aria-hidden="true"><svg class="logo__a" viewBox="0 0 36 40" fill="none" aria-hidden="true"><path d="M2.5 39 L18 4 L33.5 39" stroke="currentColor" stroke-width="3.2"/><circle cx="18" cy="26" r="3.8" fill="var(--copper)"/></svg>UREN</div>
     <div class="footer__legal">
       <span>© 2026 AUREN</span>
-      <span>Projeto fictício de portfólio: marca, produtos e preços são inventados.</span>
+      <span data-i18n="footer.legal">Projeto fictício de portfólio: marca, produtos e preços são inventados.</span>
     </div>
   </footer>
 
-  <div class="toast" role="status" aria-live="polite" data-toast></div>
+  <aside class="bag" id="bag" aria-labelledby="bag-title" aria-hidden="true" data-native-scroll>
+    <header class="bag__head">
+      <h2 id="bag-title"><span data-i18n="bag.title">Sacola</span> <span class="bag__count" data-bag-items></span></h2>
+      <button class="bag__close" type="button" aria-label="Fechar sacola" data-i18n-attr="aria-label:bag.close" data-bag-close><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+    </header>
+    <div class="bag__body" data-bag-body></div>
+    <footer class="bag__foot" data-bag-foot hidden></footer>
+  </aside>
 
+  <div class="toast" role="status" aria-live="polite" data-toast></div>
+  <div class="curtain" aria-hidden="true" data-curtain></div>
+
+  <script src="js/locales/pt.js"></script>
+  <script src="js/locales/en.js"></script>
+  <script src="js/locales/es.js"></script>
+  <script src="js/locales/fr.js"></script>
+  <script src="js/locales/ja.js"></script>
+  <script src="js/i18n.js"></script>
   <script src="js/smooth-scroll.js"></script>
   <script src="js/frame-sequence.js"></script>
   <script src="js/explode.js"></script>
   <script src="js/site.js"></script>
+  <script src="js/bag.js"></script>
   <script src="js/film-reel.js"></script>
   <script src="js/main.js"></script>
 </body>

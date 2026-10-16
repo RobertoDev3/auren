@@ -1,11 +1,13 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // lerp menor = mais suave (0.075 ≈ desaceleração longa sem ficar lenta), igual ao Last Ember
+  I18n.init();
+
   window.smooth = new SmoothScroll({ lerp: 0.075, wheelMultiplier: 1 });
 
   Explode.init(document.getElementById("showcase"), {
-    // com a rolagem suave ativa, a inércia já vem do scroll: o vídeo segue direto
+    // a rolagem suave já aplica inércia; o vídeo segue o scroll quase direto para não somar duas
     followScroll: window.smooth.wheelEnabled,
   });
   FilmReel.init(document.querySelector("[data-reel]"));
+  Bag.init();
   Site.init();
 });

@@ -1,6 +1,4 @@
-/* =========================================================
-   Seções depois do showcase
-   ========================================================= */
+/* Seções depois do showcase */
 main { position: relative; z-index: 1; background: var(--bg); }
 
 .eyebrow {
@@ -10,7 +8,7 @@ main { position: relative; z-index: 1; background: var(--bg); }
   color: var(--copper);
 }
 
-/* entrada ao rolar */
+/* entrada ao rolar (classe aplicada por Site.reveals) */
 [data-reveal] {
   opacity: 0;
   transform: translateY(24px);
@@ -22,7 +20,7 @@ main { position: relative; z-index: 1; background: var(--bg); }
   [data-reveal] { opacity: 1; transform: none; transition: none; }
 }
 
-/* ===== Manifesto ===== */
+/* ===== O relógio ===== */
 .manifesto {
   position: relative;
   min-height: 100vh;
@@ -71,7 +69,7 @@ main { position: relative; z-index: 1; background: var(--bg); }
 .manifesto__facts b { display: block; font-weight: 300; font-size: 26px; }
 .manifesto__facts span { display: block; margin-top: 6px; font-size: 10px; letter-spacing: .14em; text-transform: uppercase; color: var(--dim); }
 
-/* ===== Vídeo de detalhes ===== */
+/* ===== Detalhes ===== */
 .film-sec { padding: 120px var(--pad) 140px; }
 .film-sec__head { margin-bottom: 40px; }
 .film-sec__title { margin-top: 18px; }
@@ -86,7 +84,7 @@ main { position: relative; z-index: 1; background: var(--bg); }
   border-radius: 6px;
 }
 .reel__video { width: 100%; height: 100%; display: block; object-fit: cover; }
-.reel__frame::after { /* grão + vinheta */
+.reel__frame::after {
   content: "";
   position: absolute; inset: 0;
   pointer-events: none;
@@ -112,7 +110,7 @@ main { position: relative; z-index: 1; background: var(--bg); }
 .reel__toggle { font-size: 10px; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); transition: color .25s; }
 .reel__toggle:hover { color: var(--ink); }
 
-/* ===== Ficha técnica ===== */
+/* ===== Especificações ===== */
 .specs {
   padding: 140px var(--pad);
   display: grid;
@@ -239,20 +237,6 @@ main { position: relative; z-index: 1; background: var(--bg); }
 .stores p { margin-top: 8px; font-size: 13px; color: var(--muted); }
 .stores span { display: block; margin-top: 6px; font-size: 11px; letter-spacing: .06em; color: var(--dim); }
 
-/* ===== Aviso flutuante ===== */
-.toast {
-  position: fixed; left: 50%; bottom: 32px; z-index: 60;
-  translate: -50% 0;
-  padding: 14px 22px; border-radius: 22px;
-  width: max-content; max-width: calc(100vw - 32px); text-align: center;
-  background: #16120f; border: 1px solid var(--line-strong);
-  font-size: 12px; letter-spacing: .04em;
-  opacity: 0; transform: translateY(16px); pointer-events: none;
-  transition: opacity .4s var(--ease-out), transform .4s var(--ease-out);
-}
-.toast.is-on { opacity: 1; transform: none; }
-.toast b { color: var(--copper); font-weight: 500; }
-
 /* ===== Responsivo ===== */
 @media (max-width: 960px) {
   .specs, .purchase, .services { grid-template-columns: 1fr; }
@@ -261,7 +245,7 @@ main { position: relative; z-index: 1; background: var(--bg); }
 }
 @media (max-width: 860px) {
   .manifesto, .film-sec, .specs, .collection, .purchase, .services { padding-top: 96px; padding-bottom: 96px; }
-  /* celular: foto em cima, texto embaixo (sem texto sobre o relógio) */
+  /* foto em cima e texto embaixo, para o texto não cobrir o relógio */
   .manifesto { display: block; min-height: 0; padding-top: 0; }
   .manifesto__media { position: relative; z-index: 0; height: 62vh; margin: 0 calc(var(--pad) * -1) 8px; }
   .manifesto__media img { object-position: 72% center; transform: none; }
