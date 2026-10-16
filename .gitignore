@@ -1,0 +1,16 @@
+# sistema / editores
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# deploy / pacotes
+node_modules/
+.vercel/
+*.zip
+*.rar
+*.psd
+*.log
+
+# material de produção (fotos de referência, keyframes, vídeo bruto): fica só local
+producao/
