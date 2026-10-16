@@ -19,8 +19,8 @@
     this.current = window.scrollY;
     this.target = this.current;
     this.isRunning = false;
-    this.isStopped = false;   // stop()/start(): para travar a página atrás de modais
-    this.tween = null;        // animação de scrollTo()
+    this.isStopped = false;
+    this.tween = null;
     this.rafId = null;
 
     this.wheelEnabled = !reducedMotion && window.matchMedia('(pointer: fine)').matches;
@@ -68,7 +68,6 @@
 
     e.preventDefault();
 
-    // a roda interrompe uma animação de scrollTo em andamento
     if (this.tween) {
       this.tween = null;
       this.current = window.scrollY;
@@ -80,7 +79,6 @@
   };
 
   SmoothScroll.prototype._onNativeScroll = function () {
-    // rolagem por teclado, barra ou toque: sincroniza a posição interna
     if (!this.isRunning && !this.tween) {
       this.current = window.scrollY;
       this.target = this.current;
@@ -116,7 +114,6 @@
         return;
       }
     } else {
-      // lerp independente da taxa de quadros (mesma sensação a 60, 120 ou 144 Hz)
       var factor = 1 - Math.pow(1 - this.lerp, frames);
       this.current += (this.target - this.current) * factor;
       if (Math.abs(this.target - this.current) < 0.3) this.current = this.target;
@@ -130,11 +127,6 @@
     this.rafId = window.requestAnimationFrame(this._raf);
   };
 
-  /**
-   * Rola até um elemento ou posição.
-   * @param {Element|number} target
-   * @param {{offset?: number, onComplete?: Function, immediate?: boolean}} opts
-   */
   SmoothScroll.prototype.scrollTo = function (target, opts) {
     opts = opts || {};
     var y = typeof target === 'number'
@@ -157,7 +149,7 @@
       to: y,
       duration: duration,
       startTime: performance.now(),
-      ease: function (t) { return t === 1 ? 1 : 1 - Math.pow(2, -10 * t); }, // easeOutExpo
+      ease: function (t) { return t === 1 ? 1 : 1 - Math.pow(2, -10 * t); },
       onComplete: opts.onComplete
     };
     this.current = this.tween.from;

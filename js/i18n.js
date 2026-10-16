@@ -81,7 +81,6 @@ window.I18n = (() => {
     apply();
   }
 
-  /* Seletores: data-picker="lang", "currency" ou "lang currency" (os dois no mesmo menu, usado no celular) */
   function options(group) {
     return group === "lang"
       ? LANGS.map((code) => ({ code, label: LOCALES[code].label, hint: LOCALES[code].short }))

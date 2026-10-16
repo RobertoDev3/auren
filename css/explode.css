@@ -1,7 +1,6 @@
-/* Showcase: palco fixo enquanto o scroll avança o vídeo; o hero fica sobre o primeiro frame */
 .showcase {
   position: relative;
-  height: 560vh; /* distância de scroll do vídeo inteiro */
+  height: 560vh;
   background: var(--bg);
 }
 
@@ -16,7 +15,6 @@
   background: var(--bg);
 }
 
-/* ===== Vídeo ===== */
 .film {
   position: absolute;
   inset: 0;
@@ -49,7 +47,7 @@
   opacity: .5;
 }
 
-/* vinheta e escurecimento do lado do texto do hero (--shade-l é animado pelo Explode) */
+/* --shade-l é animado pelo Explode */
 .showcase__stage::after {
   content: "";
   position: absolute;
@@ -72,7 +70,6 @@
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
-/* ===== Anotações ===== */
 .notes {
   position: absolute;
   inset: 0;
@@ -102,7 +99,6 @@
   color: var(--muted);
 }
 
-/* ===== Progresso ===== */
 .progress {
   position: absolute;
   z-index: 6;
@@ -125,7 +121,6 @@
   transform: scaleX(var(--p, 0));
 }
 
-/* ===== Celular: só a anotação da peça atual, embaixo ===== */
 @media (max-width: 860px) {
   .note {
     left: var(--pad) !important;

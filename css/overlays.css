@@ -1,6 +1,4 @@
-/* Camadas sobre a página: sacola, aviso (toast) e cortina dos saltos de âncora */
 
-/* ===== Sacola ===== */
 .bag {
   position: fixed;
   z-index: 70;
@@ -75,7 +73,6 @@
 }
 .bag__continue:hover { color: var(--ink); }
 
-/* ===== Aviso ===== */
 .toast {
   position: fixed;
   right: 24px;
@@ -101,7 +98,6 @@
 .toast.is-on { opacity: 1; transform: none; }
 .toast b { color: var(--copper); font-weight: 500; }
 
-/* ===== Cortina ===== */
 .curtain {
   position: fixed;
   inset: 0;

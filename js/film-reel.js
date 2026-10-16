@@ -1,5 +1,3 @@
-/* Vídeo da seção Detalhes: toca sem som só enquanto está na tela.
-   A barra é dividida em capítulos iguais (data-labels) e acompanha o vídeo a cada quadro. */
 window.FilmReel = (() => {
   function init(root) {
     if (!root) return;
